@@ -2,6 +2,8 @@
 
 Fundamentals of AI final project. A reproducible pipeline that turns 100,000 Spotify app reviews into a ranked list of product issues and a short recommendation memo, using **Jev** (TypeSafe) as the structured decision engine and **Claude Haiku 5.5** as a separate lightweight writer. Every number below links to saved evidence; nothing here requires an API key to inspect.
 
+**Live dashboard:** https://fundamentals-of-ai-spotify-insights.vercel.app (public, no login). It reads a read-only Python backend (`dashboard/api/data.py`) over a SQLite database of the 100,000 processed reviews, issue ranking, checkpoint metrics and the Haiku memo (`dashboard/data/reviews.sqlite`, rebuilt with `python3 dashboard/build_db.py`). Deployed with `cd dashboard && vercel deploy --prod`. The dashboard shows saved results only; it never calls a model.
+
 ## What the project does, in plain terms
 
 1. **Ingest.** Read the instructor's CSV (660,622 rows), hash every original row, and freeze a deterministic 100,000-review sample using the instructor's own seed and ordering (`python3 -m review_pipeline.scale_plan`).
