@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spotify Review Insights</title>
+<style>
+:root{--bg:#f7f7f5;--panel:#fff;--text:#1d1d1b;--muted:#6b6b66;--line:#e3e2dd;--accent:#1f7a4d;--accent-soft:#e3f1e9;--warn:#a5530b;--bar:#2f6f9f}
+@media (prefers-color-scheme:dark){:root{--bg:#141413;--panel:#1d1d1b;--text:#ecebe6;--muted:#a3a29b;--line:#33332f;--accent:#5cc28d;--accent-soft:#1f3a2c;--warn:#e6a15a;--bar:#6aa8d6}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:26px;margin:0 0 4px}h2{font-size:18px;margin:32px 0 12px}p.sub{color:var(--muted);margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.kpi .v{font-size:24px;font-weight:650}.kpi .l{color:var(--muted);font-size:13px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.stage{flex:1 1 150px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;position:relative}
+.stage b{display:block}.stage span{color:var(--muted);font-size:13px}.stage.model{border-color:var(--accent);background:var(--accent-soft)}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:13px;color:var(--muted);font-weight:600}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}tr.issue{cursor:pointer}tr.issue:hover,tr.sel{background:var(--accent-soft)}
+.scroll{overflow-x:auto}.bars div{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:13px}
+.bars i{display:block;height:10px;background:var(--bar);border-radius:3px}.bars .k{width:90px;color:var(--muted)}
+.review{border-top:1px solid var(--line);padding:10px 0}.review:first-child{border-top:0}.meta{color:var(--muted);font-size:12px}
+.memo li{margin:6px 0}.note{color:var(--warn);font-size:13px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:720px){.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<h1>Spotify Review Insights</h1>
+<p class="sub" id="scope">Loading saved pipeline results…</p>
+
+<div class="grid" id="kpis"></div>
+
+<h2>How the pipeline works</h2>
+<div class="flow">
+  <div class="stage"><b>1. Ingest</b><span>100,000 reviews, fixed sample</span></div>
+  <div class="stage"><b>2. Queue + cache</b><span>SQLite, one task per unique text</span></div>
+  <div class="stage model"><b>3. Enrich · Jev</b><span id="w-enrich">parallel workers, batch 5</span></div>
+  <div class="stage model"><b>4. Verify · Jev</b><span>blind 10% sample</span></div>
+  <div class="stage model"><b>5. Group · Jev</b><span>complaints → issues</span></div>
+  <div class="stage"><b>6. Rank · code</b><span>priority = severity sum</span></div>
+  <div class="stage model"><b>7. Memo · Haiku 5.5</b><span>aggregates only, validated</span></div>
+</div>
+<p class="sub" style="margin-top:8px">A Python orchestrator controls the stages, spending caps and stop conditions (orchestration, not a swarm). Green stages call a model; the rest is deterministic code.</p>
+
+<h2>Scaling checkpoints (measured)</h2>
+<div class="scroll"><table id="cp"><thead><tr><th>Run</th><th class="n">Rows</th><th class="n">Workers</th><th class="n">Seconds</th><th class="n">Cache reuse</th><th class="n">Verifier agreement</th><th class="n">Jev cost</th><th class="n">Cap</th></tr></thead><tbody></tbody></table></div>
+
+<h2>Issue ranking</h2>
+<p class="sub">Completed complaints and cancellations only. Click an issue to see its highest-severity reviews.</p>
+<div class="scroll"><table id="issues"><thead><tr><th class="n">Rank</th><th>Issue</th><th class="n">Complaints</th><th class="n">Severity sum</th><th class="n">Mean severity</th></tr></thead><tbody></tbody></table></div>
+<div class="card" style="margin-top:12px"><b id="rv-title">Select an issue</b><div id="reviews"></div></div>
+
+<h2>Recommendation memo (Claude Haiku 5.5)</h2>
+<div class="card memo" id="memo"></div>
+<p class="note">The memo is model-generated from saved metrics. It passed numeric and citation validation but still needs human review; for example, describing the general-dissatisfaction issue as update-related is not established by the metrics.</p>
+
+<h2>Label distribution</h2>
+<div class="two"><div class="card bars" id="by-intent"></div><div class="card bars" id="by-topic"></div></div>
+
+<p class="sub" style="margin-top:28px">Data: <code>/api/data</code>, a read-only backend over the saved SQLite database. Costs are rate-calculated from reported usage, not provider invoices. Verifier agreement compares the same model with itself; it is not human accuracy.</p>
+</main>
+<script>
+const fmt=n=>Number(n).toLocaleString('en-US');
+const usd=n=>'$'+Number(n).toFixed(n<1?4:2);
+const el=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e};
+async function get(q){const r=await fetch('/api/data?'+new URLSearchParams(q));if(!r.ok)throw new Error(r.status);return r.json()}
+function bars(id,title,data){const box=document.getElementById(id);box.append(el('b',title));const max=Math.max(...Object.values(data));
+  for(const [k,v] of Object.entries(data)){const row=el('div');row.append(el('span',k,'k'));const i=el('i');i.style.width=(v/max*60)+'%';row.append(i,el('span',fmt(v)));box.append(row)}}
+async function reviews(issue,tr){document.querySelectorAll('tr.issue').forEach(r=>r.classList.remove('sel'));tr.classList.add('sel');
+  const box=document.getElementById('reviews');box.textContent='Loading…';document.getElementById('rv-title').textContent=issue;
+  const rows=await get({q:'reviews',issue,limit:10});box.textContent='';
+  for(const r of rows){const d=el('div',undefined,'review');d.append(el('div',r.review_text));
+    d.append(el('div',`severity ${r.severity} · ${r.intent} · ${r.topic} · sentiment ${r.sentiment.toFixed(2)} · ${r.rating}★ · ${r.review_timestamp}${r.cache_source_id?' · cached result':''}`,'meta'));box.append(d)}}
+(async()=>{
+  const s=await get({q:'summary'});const t=s.totals;const cp=s.checkpoints;const f=cp.sample_100000;
+  document.getElementById('scope').textContent=s.scope+' Classifier: '+s.models.classifier+'. Memo: '+s.models.memo+'.';
+  const jev=Object.values(cp).reduce((a,c)=>a+c.spent_usd,0);
+  const k=[[fmt(t.rows),'reviews processed'],[fmt(t.completed),'classified'],[fmt(t.quarantined),'quarantined (visible)'],
+    [fmt(t.cache_reused),'rows reused from exact-text cache'],[usd(jev),'Jev cost for the full sample'],
+    [(f.verifier_agreement/f.verified*100).toFixed(1)+'%','blind verifier agreement'],[f.workers,'parallel workers in final run']];
+  const g=document.getElementById('kpis');for(const [v,l] of k){const c=el('div',undefined,'card kpi');c.append(el('div',v,'v'),el('div',l,'l'));g.append(c)}
+  document.getElementById('w-enrich').textContent=f.workers+' parallel workers, batch '+f.batch_size;
+  const body=document.querySelector('#cp tbody');
+  const rowsCp=[['Pilot',s.pilot.rows,s.pilot.workers,'',  '', '', s.pilot.cost_usd,5]];
+  for(const [name,c] of Object.entries(cp))rowsCp.push([name,c.rows,c.workers,c.elapsed_seconds.toFixed(0),fmt(c.cache_reused_rows),`${fmt(c.verifier_agreement)}/${fmt(c.verified)}`,c.spent_usd,c.cap_usd]);
+  for(const r of rowsCp){const tr=el('tr');r.forEach((v,i)=>tr.append(el('td',i===6?usd(v):i===7?usd(v):(i===1?fmt(v):String(v)),i?'n':'')));body.append(tr)}
+  const issues=await get({q:'issues'});const ib=document.querySelector('#issues tbody');
+  for(const r of issues){const tr=el('tr',undefined,'issue');[r.rank,r.issue_id,fmt(r.complaint_count),fmt(r.severity_sum),r.mean_severity].forEach((v,i)=>tr.append(el('td',String(v),i===1?'':'n')));
+    tr.onclick=()=>reviews(r.issue_id,tr);ib.append(tr)}
+  const m=s.memo,mb=document.getElementById('memo');mb.append(el('p',m.recommendation));
+  for(const [title,list] of [['Alternatives',m.alternatives],['Limitations',m.limitations]]){mb.append(el('b',title));const ul=el('ul');list.forEach(x=>ul.append(el('li',x)));mb.append(ul)}
+  bars('by-intent','By intent',s.by_intent);bars('by-topic','By topic',s.by_topic);
+})().catch(e=>{document.getElementById('scope').textContent='Could not load data: '+e.message});
+</script>
+</body>
+</html>

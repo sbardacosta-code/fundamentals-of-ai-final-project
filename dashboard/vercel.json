@@ -1,0 +1,3 @@
+{
+  "functions": { "api/data.py": { "includeFiles": "data/reviews.sqlite" } }
+}

@@ -12,3 +12,4 @@ research/cache/
 research/class-notes.md
 .DS_Store
 data/scale/*.csv
+!dashboard/data/reviews.sqlite
