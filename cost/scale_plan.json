@@ -1,0 +1,245 @@
+{
+  "version": "scale-plan-v1",
+  "estimated": true,
+  "full_csv_sha256": "1fc85de68a304dd8978b537cfa58793d5f41cbaf417fa32cb53899f83a2fcef6",
+  "eligible_rows": 660609,
+  "excluded_rows": 13,
+  "sample": {
+    "file": "data/scale/sample_100000.csv",
+    "sha256": "cf2641e8f3075e392a4c693c7cd45484c68e907569c48718cf131f0e321d643c",
+    "size": 100000,
+    "seed": "berkeley-fall-2026-assignment-5-v1",
+    "method": "First rows by SHA-256(seed:review_id) over unique nonempty valid-rating rows; identical ordering to the instructor manifest.",
+    "nested_prefixes_verified": {
+      "golden_50_to_label.csv": true,
+      "cost_100.csv": true,
+      "checkpoint_500.csv": true,
+      "analysis_10000.csv": true
+    },
+    "includes": "golden texts (ranks 1-50, human labels never used), analysis_10000 (51-10,050), ranks 10,051-100,000"
+  },
+  "verification": {
+    "seed": "scale-verify-v1",
+    "rate": "0.10",
+    "method": "Review verified if SHA-256(seed:review_id) / 2^256 < rate; declared before any prediction, nested across checkpoints."
+  },
+  "duplicate_profiles": {
+    "checkpoint_500": {
+      "rows": 500,
+      "unique_texts": 479,
+      "duplicate_rows": 21,
+      "duplicate_share": 0.042,
+      "mean_text_chars": 78.514,
+      "verify_rate": "0.10",
+      "verified_reviews": 52,
+      "verified_unique_texts": 52
+    },
+    "analysis_10000": {
+      "rows": 10000,
+      "unique_texts": 8448,
+      "duplicate_rows": 1552,
+      "duplicate_share": 0.1552,
+      "mean_text_chars": 75.242,
+      "verify_rate": "0.10",
+      "verified_reviews": 986,
+      "verified_unique_texts": 903
+    },
+    "sample_100000": {
+      "rows": 100000,
+      "unique_texts": 78099,
+      "duplicate_rows": 21901,
+      "duplicate_share": 0.21901,
+      "mean_text_chars": 74.752,
+      "verify_rate": "0.10",
+      "verified_reviews": 9996,
+      "verified_unique_texts": 8440
+    }
+  },
+  "incremental_work": {
+    "checkpoint_500": {
+      "unique_texts": 479,
+      "verified_unique_texts": 52
+    },
+    "analysis_10000": {
+      "unique_texts": 7969,
+      "verified_unique_texts": 851
+    },
+    "sample_100000": {
+      "unique_texts": 69651,
+      "verified_unique_texts": 7537
+    }
+  },
+  "corpus_ratio_comparison": {
+    "unique_texts_if_scaled_from_full_corpus": 73294,
+    "unique_texts_measured_in_sample": 78099,
+    "note": "Measured sample has fewer duplicates than the full-corpus ratio implies; the sample count is used."
+  },
+  "unit_costs": {
+    "enrich_per_unique_text": "0.00005004846",
+    "verify_per_verified_text": "0.0000489174",
+    "group_per_unique_complaint_text": "0.00001442215384615384615384615385",
+    "memo_per_run": "0.0047476",
+    "pilot_stage_totals": {
+      "enrich": "0.005004846",
+      "group": "0.000749952",
+      "memo": "0.0047476",
+      "verify": "0.000489174"
+    },
+    "complaint_share_of_unique": "0.52"
+  },
+  "unit_cost_source": {
+    "calls": "cost/pilot_calls.jsonl",
+    "rates": "cost/rates.csv",
+    "basis": "Measured 100-review cold pilot, original classifier, batch 5, one worker; failed billed attempts included."
+  },
+  "projections": {
+    "checkpoint_500": {
+      "base": {
+        "stage_usd": {
+          "enrich": "0.023973",
+          "verify": "0.002544",
+          "group": "0.003592",
+          "memo": "0.004748"
+        },
+        "total_usd": "0.034857",
+        "complaint_share": "0.52",
+        "variable_multiplier": "1"
+      },
+      "conservative_x1.25": {
+        "stage_usd": {
+          "enrich": "0.029967",
+          "verify": "0.003180",
+          "group": "0.004490",
+          "memo": "0.004748"
+        },
+        "total_usd": "0.042384",
+        "complaint_share": "0.52",
+        "variable_multiplier": "1.25"
+      },
+      "high_complaint_share_0.70_x1.25": {
+        "stage_usd": {
+          "enrich": "0.029967",
+          "verify": "0.003180",
+          "group": "0.006045",
+          "memo": "0.004748"
+        },
+        "total_usd": "0.043938",
+        "complaint_share": "0.70",
+        "variable_multiplier": "1.25"
+      },
+      "incremental_base_after_previous_checkpoints": {
+        "stage_usd": {
+          "enrich": "0.023973",
+          "verify": "0.002544",
+          "group": "0.003592",
+          "memo": "0.004748"
+        },
+        "total_usd": "0.034857",
+        "complaint_share": "0.52",
+        "variable_multiplier": "1"
+      }
+    },
+    "analysis_10000": {
+      "base": {
+        "stage_usd": {
+          "enrich": "0.422809",
+          "verify": "0.044172",
+          "group": "0.063356",
+          "memo": "0.004748"
+        },
+        "total_usd": "0.535085",
+        "complaint_share": "0.52",
+        "variable_multiplier": "1"
+      },
+      "conservative_x1.25": {
+        "stage_usd": {
+          "enrich": "0.528512",
+          "verify": "0.055216",
+          "group": "0.079195",
+          "memo": "0.004748"
+        },
+        "total_usd": "0.667670",
+        "complaint_share": "0.52",
+        "variable_multiplier": "1.25"
+      },
+      "high_complaint_share_0.70_x1.25": {
+        "stage_usd": {
+          "enrich": "0.528512",
+          "verify": "0.055216",
+          "group": "0.106609",
+          "memo": "0.004748"
+        },
+        "total_usd": "0.695083",
+        "complaint_share": "0.70",
+        "variable_multiplier": "1.25"
+      },
+      "incremental_base_after_previous_checkpoints": {
+        "stage_usd": {
+          "enrich": "0.398836",
+          "verify": "0.041629",
+          "group": "0.059764",
+          "memo": "0.004748"
+        },
+        "total_usd": "0.504976",
+        "complaint_share": "0.52",
+        "variable_multiplier": "1"
+      }
+    },
+    "sample_100000": {
+      "base": {
+        "stage_usd": {
+          "enrich": "3.908735",
+          "verify": "0.412863",
+          "group": "0.585705",
+          "memo": "0.004748"
+        },
+        "total_usd": "4.912050",
+        "complaint_share": "0.52",
+        "variable_multiplier": "1"
+      },
+      "conservative_x1.25": {
+        "stage_usd": {
+          "enrich": "4.885918",
+          "verify": "0.516079",
+          "group": "0.732131",
+          "memo": "0.004748"
+        },
+        "total_usd": "6.138876",
+        "complaint_share": "0.52",
+        "variable_multiplier": "1.25"
+      },
+      "high_complaint_share_0.70_x1.25": {
+        "stage_usd": {
+          "enrich": "4.885918",
+          "verify": "0.516079",
+          "group": "0.985561",
+          "memo": "0.004748"
+        },
+        "total_usd": "6.392306",
+        "complaint_share": "0.70",
+        "variable_multiplier": "1.25"
+      },
+      "incremental_base_after_previous_checkpoints": {
+        "stage_usd": {
+          "enrich": "3.485925",
+          "verify": "0.368690",
+          "group": "0.522349",
+          "memo": "0.004748"
+        },
+        "total_usd": "4.381712",
+        "complaint_share": "0.52",
+        "variable_multiplier": "1"
+      }
+    }
+  },
+  "assumptions": [
+    "Original classifier and grouping configuration unchanged (adapter hashes are part of cache keys).",
+    "Jev bills input tokens only at the dated rates.csv price; output tokens are priced at $0.",
+    "Pilot token mix per request (~1,130 input tokens per review, dominated by rubric text) holds; sample texts are slightly shorter than the pilot (no credit taken).",
+    "Grouping work scales with unique complaint/cancellation texts; pilot share 52% is refreshed at each checkpoint.",
+    "Verification uses unique texts among declared sampled rows; verifier cache is separate from enrichment.",
+    "Memo is one fixed call (pilot cost including its failed attempt), never multiplied by review count.",
+    "Conservative scenario adds 25% to variable stages for retries/validation failures; it is an assumption, not measured.",
+    "Provider billing can differ from rate-calculated cost; local compute cost is unknown."
+  ]
+}

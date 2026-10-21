@@ -1,0 +1,782 @@
+{
+  "version": "memo-claims-v2",
+  "issues": [
+    {
+      "issue_id": "other-general-dissatisfaction",
+      "reviews": [
+        {
+          "review_id": "45c561b9-cc47-4d80-95d3-f0d20bc84af3",
+          "excerpt": "The update made the app useless .... Uninstall krdia ye app ab bekar hai ... Wynk hi theek h",
+          "excerpt_only": false,
+          "topic": "other",
+          "intent": "cancellation",
+          "severity": 4
+        },
+        {
+          "review_id": "00363dc8-2117-4565-9af9-efadf8fa90cf",
+          "excerpt": "Worst",
+          "excerpt_only": false,
+          "topic": "other",
+          "intent": "complaint",
+          "severity": 2
+        },
+        {
+          "review_id": "0575ce08-ab04-46f0-aa8a-fbf9cd27e8da",
+          "excerpt": "I hate this application .. 👎",
+          "excerpt_only": false,
+          "topic": "other",
+          "intent": "complaint",
+          "severity": 2
+        }
+      ]
+    },
+    {
+      "issue_id": "billing-price-paywall",
+      "reviews": [
+        {
+          "review_id": "2313bd8e-43bd-4777-bff9-3ae753288f0e",
+          "excerpt": "It is absolutely useless after the latest update. There's nothing I can do without the \"try premium\" option popping up every damn time.",
+          "excerpt_only": false,
+          "topic": "billing",
+          "intent": "complaint",
+          "severity": 4
+        },
+        {
+          "review_id": "398566f7-2519-40e6-a2f4-6676657a18a7",
+          "excerpt": "It's need to skip any song without premium pack, and when I wanna purchase subscription it's show me a blank page",
+          "excerpt_only": false,
+          "topic": "billing",
+          "intent": "complaint",
+          "severity": 4
+        },
+        {
+          "review_id": "074efbfd-f69e-46ca-9cea-e5204a192a2a",
+          "excerpt": "It's impossible to use the app without prime And the recommended song is so bad",
+          "excerpt_only": false,
+          "topic": "billing",
+          "intent": "complaint",
+          "severity": 3
+        }
+      ]
+    },
+    {
+      "issue_id": "residual-usability",
+      "reviews": [
+        {
+          "review_id": "b03d6dc9-449a-4647-b112-559186656759",
+          "excerpt": "Generally nice - but integrations buggy, offline mode USELESS, and moving storage failed and deleted everything. Ignores metered setting for WiFi which is a big pain! Fix this stuff and it'd be amazing as the ideas are great. Would be nice to be able to tune the suggestions algorithm as it either sticks to what you know or picks tracks it should know I don't like.",
+          "excerpt_only": false,
+          "topic": "usability",
+          "intent": "complaint",
+          "severity": 5
+        },
+        {
+          "review_id": "77a53aa5-a453-4bcb-8267-d4f44a492dd3",
+          "excerpt": "I can give only 1stare because the Spotify app not allow to skip the music after update and not play a single song and remove the repeat option please Spotify give back this many options i shall request you.....!",
+          "excerpt_only": false,
+          "topic": "usability",
+          "intent": "complaint",
+          "severity": 4
+        },
+        {
+          "review_id": "c1726764-f0ce-4abc-ad9e-6cd143e1b2c7",
+          "excerpt": "I can't open my spotify wrap 2022...",
+          "excerpt_only": false,
+          "topic": "usability",
+          "intent": "complaint",
+          "severity": 4
+        }
+      ]
+    },
+    {
+      "issue_id": "usability-ads",
+      "reviews": [
+        {
+          "review_id": "11ad400f-4487-4dfa-a9da-c8d624f4f107",
+          "excerpt": "This app is very very frustrating, you only get 6 skips a day, you can't pick the song you want from your playlist, you can't skip forward it's absolutely ridiculous getting premium is the only way you could actually enjoy this app it's absolutely garbage and whenever I try and search for a song I click on it I get 5 ads then after the ads I don't even get the song I wanted.",
+          "excerpt_only": false,
+          "topic": "usability",
+          "intent": "complaint",
+          "severity": 3
+        },
+        {
+          "review_id": "3bfefa06-133c-419b-a435-1fea919d6a44",
+          "excerpt": "WAY too many ads, I used a stopwatch and found that I got 10 minutes of music and 4 of ads, this is ridiculous. The only reasonable premium plans are for multiple people or students.",
+          "excerpt_only": false,
+          "topic": "usability",
+          "intent": "complaint",
+          "severity": 3
+        },
+        {
+          "review_id": "50626053-301c-42fa-91aa-2f88aef82e64",
+          "excerpt": "I say it's great for music but the ads is unbearable not only it's unskippable it's all 25+ sec long and you get 2 ads and when you want to choose a song in your playlist your getting another ad so shuffle is the only option here and I don't understand why would you need to pay to play songs in order aren't you earning enough Spotify?",
+          "excerpt_only": false,
+          "topic": "usability",
+          "intent": "complaint",
+          "severity": 3
+        }
+      ]
+    },
+    {
+      "issue_id": "playback-failure",
+      "reviews": [
+        {
+          "review_id": "06d4c78d-73b4-4b54-9ef3-3d5a0d18cb96",
+          "excerpt": "It was working fine and all and would've gotten a 5 star if it hadn't been for this glitch I've started to experience just this December. when I want to play my playlist, it does NOT play?! I have to delete the app and reinstall again and again for it to work but it just happens again! Please do fix this.",
+          "excerpt_only": false,
+          "topic": "playback",
+          "intent": "complaint",
+          "severity": 4
+        },
+        {
+          "review_id": "46ff0c74-5e86-4e5b-b4cd-36201aab0f9e",
+          "excerpt": "I am unable to use my Google assistant on the app.it says playing your Spotify playlist but do not play the songs",
+          "excerpt_only": false,
+          "topic": "playback",
+          "intent": "complaint",
+          "severity": 4
+        },
+        {
+          "review_id": "4c34f240-76d4-451a-ac74-5bc6bd484825",
+          "excerpt": "Doesn't let me play songs",
+          "excerpt_only": false,
+          "topic": "playback",
+          "intent": "complaint",
+          "severity": 4
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "claim_3f77b8ca7a2b0ff1_complaint_count",
+      "issue_id": "other-general-dissatisfaction",
+      "metric": "complaint_count",
+      "value": "62"
+    },
+    {
+      "claim_id": "claim_3f77b8ca7a2b0ff1_severity_sum",
+      "issue_id": "other-general-dissatisfaction",
+      "metric": "severity_sum",
+      "value": "125"
+    },
+    {
+      "claim_id": "claim_3f77b8ca7a2b0ff1_mean_severity",
+      "issue_id": "other-general-dissatisfaction",
+      "metric": "mean_severity",
+      "value": "2.016129"
+    },
+    {
+      "claim_id": "claim_3f77b8ca7a2b0ff1_priority_score",
+      "issue_id": "other-general-dissatisfaction",
+      "metric": "priority_score",
+      "value": "125"
+    },
+    {
+      "claim_id": "claim_bbc93f2a9c5ccb3f_complaint_count",
+      "issue_id": "billing-price-paywall",
+      "metric": "complaint_count",
+      "value": "31"
+    },
+    {
+      "claim_id": "claim_bbc93f2a9c5ccb3f_severity_sum",
+      "issue_id": "billing-price-paywall",
+      "metric": "severity_sum",
+      "value": "86"
+    },
+    {
+      "claim_id": "claim_bbc93f2a9c5ccb3f_mean_severity",
+      "issue_id": "billing-price-paywall",
+      "metric": "mean_severity",
+      "value": "2.774194"
+    },
+    {
+      "claim_id": "claim_bbc93f2a9c5ccb3f_priority_score",
+      "issue_id": "billing-price-paywall",
+      "metric": "priority_score",
+      "value": "86"
+    },
+    {
+      "claim_id": "claim_1f3f6d950179ccb8_complaint_count",
+      "issue_id": "residual-usability",
+      "metric": "complaint_count",
+      "value": "24"
+    },
+    {
+      "claim_id": "claim_1f3f6d950179ccb8_severity_sum",
+      "issue_id": "residual-usability",
+      "metric": "severity_sum",
+      "value": "70"
+    },
+    {
+      "claim_id": "claim_1f3f6d950179ccb8_mean_severity",
+      "issue_id": "residual-usability",
+      "metric": "mean_severity",
+      "value": "2.916667"
+    },
+    {
+      "claim_id": "claim_1f3f6d950179ccb8_priority_score",
+      "issue_id": "residual-usability",
+      "metric": "priority_score",
+      "value": "70"
+    },
+    {
+      "claim_id": "claim_6326167b14182204_complaint_count",
+      "issue_id": "usability-ads",
+      "metric": "complaint_count",
+      "value": "31"
+    },
+    {
+      "claim_id": "claim_6326167b14182204_severity_sum",
+      "issue_id": "usability-ads",
+      "metric": "severity_sum",
+      "value": "70"
+    },
+    {
+      "claim_id": "claim_6326167b14182204_mean_severity",
+      "issue_id": "usability-ads",
+      "metric": "mean_severity",
+      "value": "2.258065"
+    },
+    {
+      "claim_id": "claim_6326167b14182204_priority_score",
+      "issue_id": "usability-ads",
+      "metric": "priority_score",
+      "value": "70"
+    },
+    {
+      "claim_id": "claim_3afee72b6e8431b1_complaint_count",
+      "issue_id": "playback-failure",
+      "metric": "complaint_count",
+      "value": "15"
+    },
+    {
+      "claim_id": "claim_3afee72b6e8431b1_severity_sum",
+      "issue_id": "playback-failure",
+      "metric": "severity_sum",
+      "value": "54"
+    },
+    {
+      "claim_id": "claim_3afee72b6e8431b1_mean_severity",
+      "issue_id": "playback-failure",
+      "metric": "mean_severity",
+      "value": "3.600000"
+    },
+    {
+      "claim_id": "claim_3afee72b6e8431b1_priority_score",
+      "issue_id": "playback-failure",
+      "metric": "priority_score",
+      "value": "54"
+    },
+    {
+      "claim_id": "claim_e70132fca7ba0bad_complaint_count",
+      "issue_id": "playback-connection-audio",
+      "metric": "complaint_count",
+      "value": "12"
+    },
+    {
+      "claim_id": "claim_e70132fca7ba0bad_severity_sum",
+      "issue_id": "playback-connection-audio",
+      "metric": "severity_sum",
+      "value": "40"
+    },
+    {
+      "claim_id": "claim_e70132fca7ba0bad_mean_severity",
+      "issue_id": "playback-connection-audio",
+      "metric": "mean_severity",
+      "value": "3.333333"
+    },
+    {
+      "claim_id": "claim_e70132fca7ba0bad_priority_score",
+      "issue_id": "playback-connection-audio",
+      "metric": "priority_score",
+      "value": "40"
+    },
+    {
+      "claim_id": "claim_40e42dc38a002310_complaint_count",
+      "issue_id": "access-login",
+      "metric": "complaint_count",
+      "value": "7"
+    },
+    {
+      "claim_id": "claim_40e42dc38a002310_severity_sum",
+      "issue_id": "access-login",
+      "metric": "severity_sum",
+      "value": "29"
+    },
+    {
+      "claim_id": "claim_40e42dc38a002310_mean_severity",
+      "issue_id": "access-login",
+      "metric": "mean_severity",
+      "value": "4.142857"
+    },
+    {
+      "claim_id": "claim_40e42dc38a002310_priority_score",
+      "issue_id": "access-login",
+      "metric": "priority_score",
+      "value": "29"
+    },
+    {
+      "claim_id": "claim_d06ab7309fce329e_complaint_count",
+      "issue_id": "playback-crash-performance",
+      "metric": "complaint_count",
+      "value": "8"
+    },
+    {
+      "claim_id": "claim_d06ab7309fce329e_severity_sum",
+      "issue_id": "playback-crash-performance",
+      "metric": "severity_sum",
+      "value": "29"
+    },
+    {
+      "claim_id": "claim_d06ab7309fce329e_mean_severity",
+      "issue_id": "playback-crash-performance",
+      "metric": "mean_severity",
+      "value": "3.625000"
+    },
+    {
+      "claim_id": "claim_d06ab7309fce329e_priority_score",
+      "issue_id": "playback-crash-performance",
+      "metric": "priority_score",
+      "value": "29"
+    },
+    {
+      "claim_id": "claim_127b70426499374a_complaint_count",
+      "issue_id": "usability-navigation",
+      "metric": "complaint_count",
+      "value": "10"
+    },
+    {
+      "claim_id": "claim_127b70426499374a_severity_sum",
+      "issue_id": "usability-navigation",
+      "metric": "severity_sum",
+      "value": "29"
+    },
+    {
+      "claim_id": "claim_127b70426499374a_mean_severity",
+      "issue_id": "usability-navigation",
+      "metric": "mean_severity",
+      "value": "2.900000"
+    },
+    {
+      "claim_id": "claim_127b70426499374a_priority_score",
+      "issue_id": "usability-navigation",
+      "metric": "priority_score",
+      "value": "29"
+    },
+    {
+      "claim_id": "claim_863debbde68bfc93_complaint_count",
+      "issue_id": "catalog-missing-content",
+      "metric": "complaint_count",
+      "value": "10"
+    },
+    {
+      "claim_id": "claim_863debbde68bfc93_severity_sum",
+      "issue_id": "catalog-missing-content",
+      "metric": "severity_sum",
+      "value": "28"
+    },
+    {
+      "claim_id": "claim_863debbde68bfc93_mean_severity",
+      "issue_id": "catalog-missing-content",
+      "metric": "mean_severity",
+      "value": "2.800000"
+    },
+    {
+      "claim_id": "claim_863debbde68bfc93_priority_score",
+      "issue_id": "catalog-missing-content",
+      "metric": "priority_score",
+      "value": "28"
+    },
+    {
+      "claim_id": "claim_b9e2724f612bf5e3_complaint_count",
+      "issue_id": "usability-queue-playlists",
+      "metric": "complaint_count",
+      "value": "9"
+    },
+    {
+      "claim_id": "claim_b9e2724f612bf5e3_severity_sum",
+      "issue_id": "usability-queue-playlists",
+      "metric": "severity_sum",
+      "value": "27"
+    },
+    {
+      "claim_id": "claim_b9e2724f612bf5e3_mean_severity",
+      "issue_id": "usability-queue-playlists",
+      "metric": "mean_severity",
+      "value": "3.000000"
+    },
+    {
+      "claim_id": "claim_b9e2724f612bf5e3_priority_score",
+      "issue_id": "usability-queue-playlists",
+      "metric": "priority_score",
+      "value": "27"
+    },
+    {
+      "claim_id": "claim_e49c7da9b615ee7a_complaint_count",
+      "issue_id": "residual-playback",
+      "metric": "complaint_count",
+      "value": "7"
+    },
+    {
+      "claim_id": "claim_e49c7da9b615ee7a_severity_sum",
+      "issue_id": "residual-playback",
+      "metric": "severity_sum",
+      "value": "20"
+    },
+    {
+      "claim_id": "claim_e49c7da9b615ee7a_mean_severity",
+      "issue_id": "residual-playback",
+      "metric": "mean_severity",
+      "value": "2.857143"
+    },
+    {
+      "claim_id": "claim_e49c7da9b615ee7a_priority_score",
+      "issue_id": "residual-playback",
+      "metric": "priority_score",
+      "value": "20"
+    },
+    {
+      "claim_id": "claim_c38cac24018f2771_complaint_count",
+      "issue_id": "residual-downloads",
+      "metric": "complaint_count",
+      "value": "3"
+    },
+    {
+      "claim_id": "claim_c38cac24018f2771_severity_sum",
+      "issue_id": "residual-downloads",
+      "metric": "severity_sum",
+      "value": "10"
+    },
+    {
+      "claim_id": "claim_c38cac24018f2771_mean_severity",
+      "issue_id": "residual-downloads",
+      "metric": "mean_severity",
+      "value": "3.333333"
+    },
+    {
+      "claim_id": "claim_c38cac24018f2771_priority_score",
+      "issue_id": "residual-downloads",
+      "metric": "priority_score",
+      "value": "10"
+    },
+    {
+      "claim_id": "claim_f060ae55c2351468_complaint_count",
+      "issue_id": "billing-entitlement",
+      "metric": "complaint_count",
+      "value": "2"
+    },
+    {
+      "claim_id": "claim_f060ae55c2351468_severity_sum",
+      "issue_id": "billing-entitlement",
+      "metric": "severity_sum",
+      "value": "8"
+    },
+    {
+      "claim_id": "claim_f060ae55c2351468_mean_severity",
+      "issue_id": "billing-entitlement",
+      "metric": "mean_severity",
+      "value": "4.000000"
+    },
+    {
+      "claim_id": "claim_f060ae55c2351468_priority_score",
+      "issue_id": "billing-entitlement",
+      "metric": "priority_score",
+      "value": "8"
+    },
+    {
+      "claim_id": "claim_71ba8373d823a68e_complaint_count",
+      "issue_id": "catalog-search-recommendations",
+      "metric": "complaint_count",
+      "value": "3"
+    },
+    {
+      "claim_id": "claim_71ba8373d823a68e_severity_sum",
+      "issue_id": "catalog-search-recommendations",
+      "metric": "severity_sum",
+      "value": "7"
+    },
+    {
+      "claim_id": "claim_71ba8373d823a68e_mean_severity",
+      "issue_id": "catalog-search-recommendations",
+      "metric": "mean_severity",
+      "value": "2.333333"
+    },
+    {
+      "claim_id": "claim_71ba8373d823a68e_priority_score",
+      "issue_id": "catalog-search-recommendations",
+      "metric": "priority_score",
+      "value": "7"
+    },
+    {
+      "claim_id": "claim_636e53d9e95aa515_complaint_count",
+      "issue_id": "downloads-offline",
+      "metric": "complaint_count",
+      "value": "2"
+    },
+    {
+      "claim_id": "claim_636e53d9e95aa515_severity_sum",
+      "issue_id": "downloads-offline",
+      "metric": "severity_sum",
+      "value": "7"
+    },
+    {
+      "claim_id": "claim_636e53d9e95aa515_mean_severity",
+      "issue_id": "downloads-offline",
+      "metric": "mean_severity",
+      "value": "3.500000"
+    },
+    {
+      "claim_id": "claim_636e53d9e95aa515_priority_score",
+      "issue_id": "downloads-offline",
+      "metric": "priority_score",
+      "value": "7"
+    },
+    {
+      "claim_id": "claim_3fc4a68e45552687_complaint_count",
+      "issue_id": "residual-billing",
+      "metric": "complaint_count",
+      "value": "2"
+    },
+    {
+      "claim_id": "claim_3fc4a68e45552687_severity_sum",
+      "issue_id": "residual-billing",
+      "metric": "severity_sum",
+      "value": "7"
+    },
+    {
+      "claim_id": "claim_3fc4a68e45552687_mean_severity",
+      "issue_id": "residual-billing",
+      "metric": "mean_severity",
+      "value": "3.500000"
+    },
+    {
+      "claim_id": "claim_3fc4a68e45552687_priority_score",
+      "issue_id": "residual-billing",
+      "metric": "priority_score",
+      "value": "7"
+    },
+    {
+      "claim_id": "claim_011d43ba7ada77b5_complaint_count",
+      "issue_id": "residual-catalog",
+      "metric": "complaint_count",
+      "value": "3"
+    },
+    {
+      "claim_id": "claim_011d43ba7ada77b5_severity_sum",
+      "issue_id": "residual-catalog",
+      "metric": "severity_sum",
+      "value": "6"
+    },
+    {
+      "claim_id": "claim_011d43ba7ada77b5_mean_severity",
+      "issue_id": "residual-catalog",
+      "metric": "mean_severity",
+      "value": "2.000000"
+    },
+    {
+      "claim_id": "claim_011d43ba7ada77b5_priority_score",
+      "issue_id": "residual-catalog",
+      "metric": "priority_score",
+      "value": "6"
+    },
+    {
+      "claim_id": "claim_f67c250b8d362137_complaint_count",
+      "issue_id": "residual-access",
+      "metric": "complaint_count",
+      "value": "1"
+    },
+    {
+      "claim_id": "claim_f67c250b8d362137_severity_sum",
+      "issue_id": "residual-access",
+      "metric": "severity_sum",
+      "value": "4"
+    },
+    {
+      "claim_id": "claim_f67c250b8d362137_mean_severity",
+      "issue_id": "residual-access",
+      "metric": "mean_severity",
+      "value": "4.000000"
+    },
+    {
+      "claim_id": "claim_f67c250b8d362137_priority_score",
+      "issue_id": "residual-access",
+      "metric": "priority_score",
+      "value": "4"
+    },
+    {
+      "claim_id": "claim_6b7202f4d550e766_complaint_count",
+      "issue_id": "residual-other",
+      "metric": "complaint_count",
+      "value": "3"
+    },
+    {
+      "claim_id": "claim_6b7202f4d550e766_severity_sum",
+      "issue_id": "residual-other",
+      "metric": "severity_sum",
+      "value": "4"
+    },
+    {
+      "claim_id": "claim_6b7202f4d550e766_mean_severity",
+      "issue_id": "residual-other",
+      "metric": "mean_severity",
+      "value": "1.333333"
+    },
+    {
+      "claim_id": "claim_6b7202f4d550e766_priority_score",
+      "issue_id": "residual-other",
+      "metric": "priority_score",
+      "value": "4"
+    },
+    {
+      "claim_id": "claim_6f0ba18f55029c10_complaint_count",
+      "issue_id": "downloads-missing-failed",
+      "metric": "complaint_count",
+      "value": "1"
+    },
+    {
+      "claim_id": "claim_6f0ba18f55029c10_severity_sum",
+      "issue_id": "downloads-missing-failed",
+      "metric": "severity_sum",
+      "value": "3"
+    },
+    {
+      "claim_id": "claim_6f0ba18f55029c10_mean_severity",
+      "issue_id": "downloads-missing-failed",
+      "metric": "mean_severity",
+      "value": "3.000000"
+    },
+    {
+      "claim_id": "claim_6f0ba18f55029c10_priority_score",
+      "issue_id": "downloads-missing-failed",
+      "metric": "priority_score",
+      "value": "3"
+    }
+  ],
+  "prompt_claims": [
+    {
+      "claim_id": "claim_3f77b8ca7a2b0ff1_complaint_count",
+      "issue_id": "other-general-dissatisfaction",
+      "metric": "complaint_count",
+      "value": "62"
+    },
+    {
+      "claim_id": "claim_3f77b8ca7a2b0ff1_severity_sum",
+      "issue_id": "other-general-dissatisfaction",
+      "metric": "severity_sum",
+      "value": "125"
+    },
+    {
+      "claim_id": "claim_3f77b8ca7a2b0ff1_mean_severity",
+      "issue_id": "other-general-dissatisfaction",
+      "metric": "mean_severity",
+      "value": "2.016129"
+    },
+    {
+      "claim_id": "claim_3f77b8ca7a2b0ff1_priority_score",
+      "issue_id": "other-general-dissatisfaction",
+      "metric": "priority_score",
+      "value": "125"
+    },
+    {
+      "claim_id": "claim_bbc93f2a9c5ccb3f_complaint_count",
+      "issue_id": "billing-price-paywall",
+      "metric": "complaint_count",
+      "value": "31"
+    },
+    {
+      "claim_id": "claim_bbc93f2a9c5ccb3f_severity_sum",
+      "issue_id": "billing-price-paywall",
+      "metric": "severity_sum",
+      "value": "86"
+    },
+    {
+      "claim_id": "claim_bbc93f2a9c5ccb3f_mean_severity",
+      "issue_id": "billing-price-paywall",
+      "metric": "mean_severity",
+      "value": "2.774194"
+    },
+    {
+      "claim_id": "claim_bbc93f2a9c5ccb3f_priority_score",
+      "issue_id": "billing-price-paywall",
+      "metric": "priority_score",
+      "value": "86"
+    },
+    {
+      "claim_id": "claim_1f3f6d950179ccb8_complaint_count",
+      "issue_id": "residual-usability",
+      "metric": "complaint_count",
+      "value": "24"
+    },
+    {
+      "claim_id": "claim_1f3f6d950179ccb8_severity_sum",
+      "issue_id": "residual-usability",
+      "metric": "severity_sum",
+      "value": "70"
+    },
+    {
+      "claim_id": "claim_1f3f6d950179ccb8_mean_severity",
+      "issue_id": "residual-usability",
+      "metric": "mean_severity",
+      "value": "2.916667"
+    },
+    {
+      "claim_id": "claim_1f3f6d950179ccb8_priority_score",
+      "issue_id": "residual-usability",
+      "metric": "priority_score",
+      "value": "70"
+    },
+    {
+      "claim_id": "claim_6326167b14182204_complaint_count",
+      "issue_id": "usability-ads",
+      "metric": "complaint_count",
+      "value": "31"
+    },
+    {
+      "claim_id": "claim_6326167b14182204_severity_sum",
+      "issue_id": "usability-ads",
+      "metric": "severity_sum",
+      "value": "70"
+    },
+    {
+      "claim_id": "claim_6326167b14182204_mean_severity",
+      "issue_id": "usability-ads",
+      "metric": "mean_severity",
+      "value": "2.258065"
+    },
+    {
+      "claim_id": "claim_6326167b14182204_priority_score",
+      "issue_id": "usability-ads",
+      "metric": "priority_score",
+      "value": "70"
+    },
+    {
+      "claim_id": "claim_3afee72b6e8431b1_complaint_count",
+      "issue_id": "playback-failure",
+      "metric": "complaint_count",
+      "value": "15"
+    },
+    {
+      "claim_id": "claim_3afee72b6e8431b1_severity_sum",
+      "issue_id": "playback-failure",
+      "metric": "severity_sum",
+      "value": "54"
+    },
+    {
+      "claim_id": "claim_3afee72b6e8431b1_mean_severity",
+      "issue_id": "playback-failure",
+      "metric": "mean_severity",
+      "value": "3.600000"
+    },
+    {
+      "claim_id": "claim_3afee72b6e8431b1_priority_score",
+      "issue_id": "playback-failure",
+      "metric": "priority_score",
+      "value": "54"
+    }
+  ],
+  "selection": "Highest priority five issues; highest severity then review ID, up to three excerpts each; each excerpt capped at 1200 characters. Illustrative selection, not representative sampling.",
+  "overlapping_membership": false,
+  "validation_limits": "ID and numeric-placeholder checks do not prove semantic support. Spelled-out numbers and causal assertions require human review.",
+  "evidence_sha256": "d538b7e1b6546eec6d4693404a6d8f3f4313e03f4597606ed11115528ec6de87"
+}

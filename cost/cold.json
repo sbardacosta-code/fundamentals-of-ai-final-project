@@ -1,0 +1,139 @@
+{
+  "phase": "cold",
+  "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+  "db_path": "/Users/sebastianbardacostaartagaveytia/Desktop/Final Project/artifacts/pilot/pilot.sqlite",
+  "input_count": 100,
+  "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+  "unique_nonempty_texts": 100,
+  "budget_usd": 5.0,
+  "max_workers": 1,
+  "batch_size": 5,
+  "status_counts": {
+    "completed": 100
+  },
+  "attempts": [
+    {
+      "elapsed_seconds": 0.19838291600000002,
+      "stages_completed": [
+        "prepare"
+      ],
+      "stage_seconds": {
+        "prepare": 0.009222750000000002,
+        "enrich": 0.187066583
+      },
+      "stage_times_seconds": {
+        "prepare": 0.009222750000000002,
+        "enrich": 0.187066583
+      },
+      "error": "Score does not match probability-weighted levels"
+    },
+    {
+      "elapsed_seconds": 0.160348125,
+      "stages_completed": [
+        "prepare"
+      ],
+      "stage_seconds": {
+        "prepare": 0.003143541999999999,
+        "enrich": 0.154032292
+      },
+      "stage_times_seconds": {
+        "prepare": 0.003143541999999999,
+        "enrich": 0.154032292
+      },
+      "error": "Requested checkpoint after saved batches"
+    },
+    {
+      "elapsed_seconds": 5.02323,
+      "stages_completed": [
+        "prepare",
+        "enrich",
+        "verify",
+        "group",
+        "rank"
+      ],
+      "stage_seconds": {
+        "prepare": 0.0033255840000000064,
+        "enrich": 2.9430377500000002,
+        "verify": 0.31420866599999986,
+        "group": 1.7325270419999996,
+        "rank": 0.0095843750000002
+      },
+      "stage_times_seconds": {
+        "prepare": 0.0033255840000000064,
+        "enrich": 2.9430377500000002,
+        "verify": 0.31420866599999986,
+        "group": 1.7325270419999996,
+        "rank": 0.0095843750000002
+      },
+      "error": null
+    }
+  ],
+  "elapsed_seconds": 17.042553874,
+  "stages_completed": [
+    "enrich",
+    "group",
+    "memo",
+    "prepare",
+    "rank",
+    "verify"
+  ],
+  "stage_seconds": {
+    "prepare": 0.015691876000000007,
+    "enrich": 3.2841366250000004,
+    "verify": 0.31420866599999986,
+    "group": 1.7325270419999996,
+    "rank": 0.0095843750000002,
+    "memo": 11.660592832999999
+  },
+  "jev_stages_complete": true,
+  "full_pilot_complete": true,
+  "remaining": [],
+  "error": null,
+  "ledger": {
+    "id": "b0aafb65d8954d3c9920383a0bfeabd6",
+    "budget": 5.0,
+    "spent": 0.010991572,
+    "reserved": 0.0
+  },
+  "stage_times_seconds": {
+    "prepare": 0.015691876000000007,
+    "enrich": 3.2841366250000004,
+    "verify": 0.31420866599999986,
+    "group": 1.7325270419999996,
+    "rank": 0.0095843750000002,
+    "memo": 11.660592832999999
+  },
+  "runtime_basis": "active_attempts",
+  "active_elapsed_seconds": 17.042553874,
+  "end_to_end_wall_seconds": null,
+  "wall_window_seconds": 413.215171,
+  "memo_attempts": [
+    {
+      "elapsed_seconds": 6.857685708,
+      "cached": false,
+      "completed": false,
+      "error": "Claims list must exactly match prose placeholders."
+    },
+    {
+      "elapsed_seconds": 4.802907125,
+      "cached": false,
+      "completed": true,
+      "error": null
+    }
+  ],
+  "memo_elapsed_seconds": 11.660592832999999,
+  "memo_model": "gpt-4.1-mini-2025-04-14",
+  "memo_config": "e13599c5c43f221b074f77637078a1de3b489e39cebce1f657006ffb9c69d881",
+  "memo_complete": true,
+  "jev_elapsed_seconds": 5.381961041,
+  "active_execution_seconds": 17.042553874,
+  "wall_elapsed_seconds": 413.215171,
+  "pause_seconds": 396.172617126,
+  "timing_note": "Active execution sums nonoverlapping Jev and memo invocations including their overhead. Cold wall window begins at manifest creation and includes pauses. Warm wall duration is unknown unless its own phase_started_at is recorded; pause is the measured wall-minus-active remainder, including between-command overhead.",
+  "memo": {
+    "cache_hit": false,
+    "complete": true,
+    "error": null,
+    "path": "artifacts/pilot/memo.json"
+  }
+}

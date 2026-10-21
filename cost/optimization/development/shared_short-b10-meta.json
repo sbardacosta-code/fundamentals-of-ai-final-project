@@ -1,0 +1,29 @@
+{
+  "trial": "shared_short-b10",
+  "config": {
+    "role": "enrich",
+    "model": "jev-1.13.0",
+    "experiment": "prompt-cost-quality-v1",
+    "variant": "shared_short",
+    "batch_size": 10,
+    "adapter_sha256": "d98abb38885679f64534605cf47bfdd91cbe28f4bd1833b06565db96a84181ac",
+    "base_adapter_sha256": "61b032e16d8c4a8069d1edc3db09268df2256de9f43a3f79260a79ce0dfe9096"
+  },
+  "config_id": "d2ec23c387a2f1c2e20221dcfb322af8c31ca28170eceaf28e543ee807dc4a15",
+  "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+  "complete": true,
+  "count": 100,
+  "attempts": 10,
+  "cost_usd": 0.002307438,
+  "unknown_cost_attempts": 0,
+  "input_tokens": 54939,
+  "elapsed_seconds": 2.0117275830000003,
+  "error": null,
+  "ledger": {
+    "id": "b0aafb65d8954d3c9920383a0bfeabd6",
+    "budget": 5.0,
+    "spent": 0.023275564000000002,
+    "reserved": 0.0
+  },
+  "unique_enrichment_count": 100
+}

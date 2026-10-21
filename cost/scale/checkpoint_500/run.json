@@ -1,0 +1,83 @@
+{
+  "name": "checkpoint_500",
+  "run_id": "7e2253c6fc18446bac076f80d7b8d1bb",
+  "input": "data/source/checkpoint_500.csv",
+  "dataset_id": "a94e31663ee7b7eaa77e23b7a8425b530cc0c866ed5e714953172a0afef6a12f",
+  "enrichment_config": "a9929aa2409ac9970c4d5fb000aa7560eaa8ace0995c56d3a927adbb4781da12",
+  "budget_usd": 0.25,
+  "ledger": {
+    "id": "7e2253c6fc18446bac076f80d7b8d1bb",
+    "budget": 0.25,
+    "spent": 0.029115114000000004,
+    "reserved": 0.0
+  },
+  "remaining_budget_usd": 0.220884886,
+  "status_counts": {
+    "completed": 500
+  },
+  "calls_by_role_outcome": {
+    "enrich:failed": 1,
+    "enrich:succeeded": 96,
+    "group:succeeded": 49,
+    "verify:succeeded": 11
+  },
+  "cost_by_role_usd": {
+    "enrich": "0.023075094",
+    "group": "0.003480498",
+    "verify": "0.002559522"
+  },
+  "cache_reused_rows": 21,
+  "stages_complete": true,
+  "attempts": [
+    {
+      "started_at": "2026-10-21T04:54:48.305921+00:00",
+      "elapsed_seconds": 5.044301333,
+      "workers": 2,
+      "batch_size": 5,
+      "requests_per_second": 4.0,
+      "stages_completed": [
+        "prepare"
+      ],
+      "stage_seconds": {
+        "prepare": 0.021321333000000012,
+        "enrich": 5.006961457999999
+      },
+      "counters": {
+        "batches": 20,
+        "requests": 20,
+        "invalid": 0,
+        "rate_limited": 0
+      },
+      "error": "enrich: Requested checkpoint after saved batches"
+    },
+    {
+      "started_at": "2026-10-21T04:54:58.434420+00:00",
+      "elapsed_seconds": 34.231554,
+      "workers": 2,
+      "batch_size": 5,
+      "requests_per_second": 4.0,
+      "stages_completed": [
+        "prepare",
+        "enrich",
+        "verify",
+        "group",
+        "rank"
+      ],
+      "stage_seconds": {
+        "prepare": 0.05184675000000001,
+        "enrich": 19.208326959,
+        "verify": 2.6539885000000005,
+        "group": 12.217671125000003,
+        "rank": 0.011673791999996297
+      },
+      "counters": {
+        "batches": 136,
+        "requests": 136,
+        "invalid": 1,
+        "rate_limited": 0
+      },
+      "error": null
+    }
+  ],
+  "error": null
+}

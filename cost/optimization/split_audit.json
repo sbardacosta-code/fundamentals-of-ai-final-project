@@ -1,0 +1,28 @@
+{
+  "development_rows": 100,
+  "holdout_rows": 100,
+  "development_unique_texts": 100,
+  "holdout_unique_texts": 99,
+  "id_overlap": [],
+  "overlapping_distinct_texts": 3,
+  "overlapping_holdout_ids": [
+    "54fdf931-7807-4af4-9c9b-d87845129bcb",
+    "d0ad8f6f-6746-4042-9645-2051184824f6",
+    "9ec495c3-d57d-47dd-b08d-834557b12117",
+    "90c663e4-4362-4929-b4a8-098db44c2cc6"
+  ],
+  "overlap_excluded_sensitivity": {
+    "baseline-b5": {
+      "count": 96,
+      "accepted_joint_matches": 88,
+      "accepted_joint_agreement": 0.9166666666666666
+    },
+    "calibrated-b10": {
+      "count": 96,
+      "accepted_joint_matches": 79,
+      "accepted_joint_agreement": 0.8229166666666666
+    }
+  },
+  "reference_kind": "assistant audit, not human golden labels",
+  "no_further_tuning_on_holdout": true
+}

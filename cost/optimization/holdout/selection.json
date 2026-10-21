@@ -1,0 +1,25 @@
+{
+  "candidate": "calibrated-b10",
+  "reason": "Only tested candidate passing all development quality gates; frozen before held-out candidate inference or scoring.",
+  "adapter_sha256": "b8229dc186e722e6990dc3a35a346289dda6f558284113a4e003c00d950d151d",
+  "development_gate": {
+    "passes": true,
+    "checks": {
+      "topic": true,
+      "intent": true,
+      "severity": true,
+      "primary_topic": true,
+      "primary_intent": true,
+      "primary_severity": true,
+      "severity_mae": true,
+      "severe_recall": true,
+      "complete_predictions": true,
+      "complete_baseline": true
+    },
+    "automatic_promotion": false,
+    "human_quality": "unknown"
+  },
+  "holdout_sha256": "20e85666ab06f1a7f3d55ff670980c80e98b7e7d56f49635a1b54e621a9b00d8",
+  "further_tuning_on_holdout": false,
+  "human_quality": "unknown; assistant reference only"
+}

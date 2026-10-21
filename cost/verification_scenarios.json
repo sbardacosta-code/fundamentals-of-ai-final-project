@@ -1,0 +1,24 @@
+{
+  "status": "modeled alternatives; not adopted or executed",
+  "source": "cost/report.json",
+  "unchanged_classifier": true,
+  "no_numeric_fraction_in_assignment": true,
+  "limitation": "Smaller random samples provide less precise disagreement estimates; full scope unchanged.",
+  "scenarios": [
+    {
+      "verification_reviews": 500,
+      "base_usd": "27.89330518822",
+      "buffered_usd": "34.8654445852750"
+    },
+    {
+      "verification_reviews": 1000,
+      "base_usd": "27.91776388822",
+      "buffered_usd": "34.8960179602750"
+    },
+    {
+      "verification_reviews": 5000,
+      "base_usd": "28.11343348822",
+      "buffered_usd": "35.1406049602750"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "source": "Professor announcement pasted by student on 2026-10-11; not independently retrieved",
+  "verbatim": "Hey guys, remember we will be accepting an extension of the final assignment until oct 20th midnight. Also be sure not to be spending more than 10 dollars on you 100k runs, remember to use the techniques of caching, batching, parallelizing and queues to be able to achieve this, and combine jev or gpt decisions with a model like luna or haiku.",
+  "planning_scope_nonempty_reviews": 100000,
+  "assignment_run_target_usd": 10,
+  "existing_authorized_pilot_budget_usd": 5,
+  "new_paid_run_authorized": false,
+  "deadline_as_announced": "oct 20th midnight",
+  "deadline_note": "Extension supersedes original Oct13 date; exact midnight/timezone boundary not specified in pasted announcement.",
+  "estimate": {
+    "base_no_exact_reuse_usd": "6.24871960000",
+    "buffered_no_exact_reuse_usd": "7.8097126000000",
+    "basis": "Existing measured baseline pilot scaled to100000 nonempty rows; no exact reuse savings assumed;10%verification, unchanged grouping mix; memo once.",
+    "limitations": "Not a measured100k run or maximum charge. Review/token mix, rare failures and support-model changes may alter cost."
+  }
+}

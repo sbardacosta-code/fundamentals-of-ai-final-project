@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+data/source/*.csv
+data/human/
+artifacts/
+*.sqlite*
+research/cache/
+research/class-notes.md
+.DS_Store
+data/scale/*.csv

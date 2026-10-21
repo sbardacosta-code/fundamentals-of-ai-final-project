@@ -1,0 +1,13 @@
+{
+  "state": "succeeded",
+  "error": null,
+  "cost_usd": 0.0010658,
+  "ledger": {
+    "id": "d6c25258ca2a44928219bca1f03d74fa",
+    "budget": 0.1,
+    "spent": 0.0021351,
+    "reserved": 0.0
+  },
+  "model": "claude-haiku-5-5",
+  "cache_key": "a544c9f4df79d67a1bd5e1f634cb78dc54d280c589f492a8a9652cc595417388"
+}

@@ -1,0 +1,39 @@
+{
+  "recommendation": "Test a hypothesis that recent app updates are associated with complaints about paywall prompts blocking playback, starting with the billing-price-paywall issue. Across the saved issues, the billing-price-paywall group contains 594 [claim_bbc93f2a9c5ccb3f_complaint_count] complaints with mean severity 2.826599 [claim_bbc93f2a9c5ccb3f_mean_severity], which is the highest mean severity among the saved issues. Validate with a focused study of the premium prompt flow before changing any paywall behavior, since the excerpts only show that users reported the prompt, not its root cause.",
+  "alternatives": [
+    "Compare a diagnostic investigation of the playback-failure issue, which has 265 [claim_3afee72b6e8431b1_complaint_count] complaints, with a focused user study before choosing an intervention.",
+    "Review the usability-ads issue, with 607 [claim_6326167b14182204_complaint_count] complaints, as a separate hypothesis about ad frequency versus navigation difficulty; this trades speed for a clearer attribution of cause.",
+    "Investigate the general dissatisfaction group, with 1192 [claim_3f77b8ca7a2b0ff1_complaint_count] complaints, through a release-note comparison; this is broad and may not isolate one fix."
+  ],
+  "limitations": [
+    "Historical self-selected reviews cannot establish population prevalence, causal effects, or confirmed churn.",
+    "Source excerpts are bounded illustrations of at most three per issue and are not necessarily representative samples.",
+    "Complaint counts and severity values describe saved review records only and do not imply revenue impact or customer retention outcomes."
+  ],
+  "claims": [
+    "claim_bbc93f2a9c5ccb3f_complaint_count",
+    "claim_bbc93f2a9c5ccb3f_mean_severity",
+    "claim_3afee72b6e8431b1_complaint_count",
+    "claim_6326167b14182204_complaint_count",
+    "claim_3f77b8ca7a2b0ff1_complaint_count"
+  ],
+  "issue_ids": [
+    "billing-price-paywall",
+    "playback-failure",
+    "usability-ads",
+    "other-general-dissatisfaction"
+  ],
+  "review_ids": [
+    "0530884a-ebe7-45c7-bc39-acff584189bf",
+    "0a1373c2-6e6b-49ce-b0d9-c202e885a2f2",
+    "2313bd8e-43bd-4777-bff9-3ae753288f0e",
+    "ae7f1da6-8656-4abc-8d2d-3730923fa741",
+    "004d1c8a-a8c8-4746-b975-cd2f31c2a730",
+    "117770a7-cec9-4bc3-8a9f-a5d6f3544b5d",
+    "ee11e1df-cb73-4c3a-b5e8-7268c7872b01",
+    "45c561b9-cc47-4d80-95d3-f0d20bc84af3",
+    "eec69a7d-e5f4-4a4f-ba73-d5ab20381f54"
+  ],
+  "evidence_sha256": "bd6e8a468fb83bc1cdb4b82770bcc77815263d02846f269cd3f8bfec40ea8c49",
+  "validation_limits": "ID and numeric-placeholder checks do not prove semantic support. Spelled-out numbers and causal assertions require human review."
+}

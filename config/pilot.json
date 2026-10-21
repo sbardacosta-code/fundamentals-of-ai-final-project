@@ -1,0 +1,16 @@
+{
+  "authorized_api_budget_usd": 5,
+  "authorization_date": "2026-10-10",
+  "authorization_scope": "First real 100-review pilot, including Jev and supporting model calls",
+  "full_run_authorized": false,
+  "paid_execution_enabled": true,
+  "workers": 1,
+  "batch_size": 5,
+  "max_reviews_per_request": 50,
+  "verification_sample_size": 10,
+  "model": "jev-1.13.0",
+  "supporting_provider": "openai",
+  "supporting_model": "gpt-4.1-mini-2025-04-14",
+  "memo_max_output_tokens": 1500,
+  "maximum_fallback_fraction": 0
+}

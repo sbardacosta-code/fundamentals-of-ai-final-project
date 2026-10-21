@@ -1,0 +1,44 @@
+{
+  "recommendation": "Test a focused hypothesis that the post-update experience is blocking basic actions for some users, starting with the highest-priority issue. The other-general-dissatisfaction issue has a recorded complaint count of 62 [claim_3f77b8ca7a2b0ff1_complaint_count] with a priority score of 125 [claim_3f77b8ca7a2b0ff1_priority_score]. Treat this as a triage signal: first verify whether the update correlates with the cited complaints using product telemetry, then decide on a remedy. Validate any remedy before expecting any customer outcome.",
+  "alternatives": [
+    "Run a diagnostic investigation of the playback-failure issue, which has a recorded mean severity of 3.600000 [claim_3afee72b6e8431b1_mean_severity] across 15 [claim_3afee72b6e8431b1_complaint_count] complaints, before committing to a fix.",
+    "Compare a paywall-messaging experiment on the billing-price-paywall issue, which has 31 [claim_bbc93f2a9c5ccb3f_complaint_count] complaints, against a focused user study to understand whether the premium prompts drive the negative feedback.",
+    "Review ad-load and skip-limit complaints in the usability-ads issue, which has 31 [claim_6326167b14182204_complaint_count] complaints, as a hypothesis to test with controlled ad-frequency variants rather than a confirmed cause."
+  ],
+  "limitations": [
+    "Historical self-selected reviews cannot establish population prevalence, causal effects, or confirmed churn.",
+    "Source excerpts are bounded illustrations from a highest-priority selection and are not representative samples.",
+    "Complaint counts and severity figures describe the saved review set only and do not measure revenue or retention impact.",
+    "Root causes for the reported issues have not been verified by this analysis."
+  ],
+  "claims": [
+    "claim_3f77b8ca7a2b0ff1_complaint_count",
+    "claim_3f77b8ca7a2b0ff1_priority_score",
+    "claim_3afee72b6e8431b1_mean_severity",
+    "claim_3afee72b6e8431b1_complaint_count",
+    "claim_bbc93f2a9c5ccb3f_complaint_count",
+    "claim_6326167b14182204_complaint_count"
+  ],
+  "issue_ids": [
+    "other-general-dissatisfaction",
+    "playback-failure",
+    "billing-price-paywall",
+    "usability-ads"
+  ],
+  "review_ids": [
+    "45c561b9-cc47-4d80-95d3-f0d20bc84af3",
+    "00363dc8-2117-4565-9af9-efadf8fa90cf",
+    "0575ce08-ab04-46f0-aa8a-fbf9cd27e8da",
+    "06d4c78d-73b4-4b54-9ef3-3d5a0d18cb96",
+    "46ff0c74-5e86-4e5b-b4cd-36201aab0f9e",
+    "4c34f240-76d4-451a-ac74-5bc6bd484825",
+    "2313bd8e-43bd-4777-bff9-3ae753288f0e",
+    "398566f7-2519-40e6-a2f4-6676657a18a7",
+    "074efbfd-f69e-46ca-9cea-e5204a192a2a",
+    "11ad400f-4487-4dfa-a9da-c8d624f4f107",
+    "3bfefa06-133c-419b-a435-1fea919d6a44",
+    "50626053-301c-42fa-91aa-2f88aef82e64"
+  ],
+  "evidence_sha256": "d538b7e1b6546eec6d4693404a6d8f3f4313e03f4597606ed11115528ec6de87",
+  "validation_limits": "ID and numeric-placeholder checks do not prove semantic support. Spelled-out numbers and causal assertions require human review."
+}

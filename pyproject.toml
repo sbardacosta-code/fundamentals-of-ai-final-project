@@ -1,0 +1,9 @@
+[project]
+name = "spotify-jev-pipeline"
+version = "0.1.0"
+description = "Auditable Jev review workflow with durable queued tasks and exact-text caching"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+review-pipeline = "review_pipeline.cli:main"

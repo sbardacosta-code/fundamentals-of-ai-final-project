@@ -1,0 +1,1020 @@
+{
+  "version": "pilot-report-v1",
+  "actual": {
+    "cold": {
+      "complete": true,
+      "incomplete_reasons": [],
+      "metadata": {
+        "phase": "cold",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "db_path": "/Users/sebastianbardacostaartagaveytia/Desktop/Final Project/artifacts/pilot/pilot.sqlite",
+        "input_count": 100,
+        "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+        "unique_nonempty_texts": 100,
+        "budget_usd": 5.0,
+        "max_workers": 1,
+        "batch_size": 5,
+        "status_counts": {
+          "completed": 100
+        },
+        "attempts": [
+          {
+            "elapsed_seconds": 0.19838291600000002,
+            "stages_completed": [
+              "prepare"
+            ],
+            "stage_seconds": {
+              "prepare": 0.009222750000000002,
+              "enrich": 0.187066583
+            },
+            "stage_times_seconds": {
+              "prepare": 0.009222750000000002,
+              "enrich": 0.187066583
+            },
+            "error": "Score does not match probability-weighted levels"
+          },
+          {
+            "elapsed_seconds": 0.160348125,
+            "stages_completed": [
+              "prepare"
+            ],
+            "stage_seconds": {
+              "prepare": 0.003143541999999999,
+              "enrich": 0.154032292
+            },
+            "stage_times_seconds": {
+              "prepare": 0.003143541999999999,
+              "enrich": 0.154032292
+            },
+            "error": "Requested checkpoint after saved batches"
+          },
+          {
+            "elapsed_seconds": 5.02323,
+            "stages_completed": [
+              "prepare",
+              "enrich",
+              "verify",
+              "group",
+              "rank"
+            ],
+            "stage_seconds": {
+              "prepare": 0.0033255840000000064,
+              "enrich": 2.9430377500000002,
+              "verify": 0.31420866599999986,
+              "group": 1.7325270419999996,
+              "rank": 0.0095843750000002
+            },
+            "stage_times_seconds": {
+              "prepare": 0.0033255840000000064,
+              "enrich": 2.9430377500000002,
+              "verify": 0.31420866599999986,
+              "group": 1.7325270419999996,
+              "rank": 0.0095843750000002
+            },
+            "error": null
+          }
+        ],
+        "elapsed_seconds": 17.042553874,
+        "stages_completed": [
+          "enrich",
+          "group",
+          "memo",
+          "prepare",
+          "rank",
+          "verify"
+        ],
+        "stage_seconds": {
+          "prepare": 0.015691876000000007,
+          "enrich": 3.2841366250000004,
+          "verify": 0.31420866599999986,
+          "group": 1.7325270419999996,
+          "rank": 0.0095843750000002,
+          "memo": 11.660592832999999
+        },
+        "jev_stages_complete": true,
+        "full_pilot_complete": true,
+        "remaining": [],
+        "error": null,
+        "ledger": {
+          "id": "b0aafb65d8954d3c9920383a0bfeabd6",
+          "budget": 5.0,
+          "spent": 0.010991572,
+          "reserved": 0.0
+        },
+        "stage_times_seconds": {
+          "prepare": 0.015691876000000007,
+          "enrich": 3.2841366250000004,
+          "verify": 0.31420866599999986,
+          "group": 1.7325270419999996,
+          "rank": 0.0095843750000002,
+          "memo": 11.660592832999999
+        },
+        "runtime_basis": "active_attempts",
+        "active_elapsed_seconds": 17.042553874,
+        "end_to_end_wall_seconds": null,
+        "wall_window_seconds": 413.215171,
+        "memo_attempts": [
+          {
+            "elapsed_seconds": 6.857685708,
+            "cached": false,
+            "completed": false,
+            "error": "Claims list must exactly match prose placeholders."
+          },
+          {
+            "elapsed_seconds": 4.802907125,
+            "cached": false,
+            "completed": true,
+            "error": null
+          }
+        ],
+        "memo_elapsed_seconds": 11.660592832999999,
+        "memo_model": "gpt-4.1-mini-2025-04-14",
+        "memo_config": "e13599c5c43f221b074f77637078a1de3b489e39cebce1f657006ffb9c69d881",
+        "memo_complete": true,
+        "jev_elapsed_seconds": 5.381961041,
+        "active_execution_seconds": 17.042553874,
+        "wall_elapsed_seconds": 413.215171,
+        "pause_seconds": 396.172617126,
+        "timing_note": "Active execution sums nonoverlapping Jev and memo invocations including their overhead. Cold wall window begins at manifest creation and includes pauses. Warm wall duration is unknown unless its own phase_started_at is recorded; pause is the measured wall-minus-active remainder, including between-command overhead.",
+        "memo": {
+          "cache_hit": false,
+          "complete": true,
+          "error": null,
+          "path": "artifacts/pilot/memo.json"
+        }
+      },
+      "saved_status_counts": {
+        "completed": 100
+      },
+      "attempts": 36,
+      "failed_attempts": 2,
+      "new_enrichment_calls": 21,
+      "unknown_cost_attempts": 0,
+      "known_api_cost_usd": "0.010991572",
+      "total_api_cost_usd": "0.010991572",
+      "elapsed_seconds": 17.042553874,
+      "runtime_basis": "active_attempts",
+      "active_elapsed_seconds": 17.042553874,
+      "wall_elapsed_seconds": 413.215171,
+      "pause_seconds": 396.172617126,
+      "input_rows_per_second": 5.867665183242242,
+      "api_cost_per_1000_inputs_usd": "0.109915720",
+      "api_cost_per_completed_record_usd": "0.00010991572",
+      "local_compute_cost_usd": null
+    },
+    "warm": {
+      "complete": true,
+      "incomplete_reasons": [],
+      "metadata": {
+        "phase": "warm",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "db_path": "/Users/sebastianbardacostaartagaveytia/Desktop/Final Project/artifacts/pilot/pilot.sqlite",
+        "input_count": 100,
+        "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+        "unique_nonempty_texts": 100,
+        "budget_usd": 5.0,
+        "max_workers": 1,
+        "batch_size": 5,
+        "status_counts": {
+          "completed": 100
+        },
+        "attempts": [
+          {
+            "elapsed_seconds": 0.029706124999999993,
+            "stages_completed": [
+              "prepare",
+              "enrich",
+              "verify",
+              "group",
+              "rank"
+            ],
+            "stage_seconds": {
+              "prepare": 0.0038727499999999943,
+              "enrich": 0.0006394579999999955,
+              "verify": 0.0001784579999999994,
+              "group": 0.0004287499999999986,
+              "rank": 0.010766209000000006
+            },
+            "stage_times_seconds": {
+              "prepare": 0.0038727499999999943,
+              "enrich": 0.0006394579999999955,
+              "verify": 0.0001784579999999994,
+              "group": 0.0004287499999999986,
+              "rank": 0.010766209000000006
+            },
+            "error": null
+          }
+        ],
+        "elapsed_seconds": 0.043230791000000005,
+        "stages_completed": [
+          "enrich",
+          "group",
+          "memo",
+          "prepare",
+          "rank",
+          "verify"
+        ],
+        "stage_seconds": {
+          "prepare": 0.0038727499999999943,
+          "enrich": 0.0006394579999999955,
+          "verify": 0.0001784579999999994,
+          "group": 0.0004287499999999986,
+          "rank": 0.010766209000000006,
+          "memo": 0.010807000000000011
+        },
+        "jev_stages_complete": true,
+        "full_pilot_complete": true,
+        "remaining": [],
+        "error": null,
+        "ledger": {
+          "id": "b0aafb65d8954d3c9920383a0bfeabd6",
+          "budget": 5.0,
+          "spent": 0.010991572,
+          "reserved": 0.0
+        },
+        "stage_times_seconds": {
+          "prepare": 0.0038727499999999943,
+          "enrich": 0.0006394579999999955,
+          "verify": 0.0001784579999999994,
+          "group": 0.0004287499999999986,
+          "rank": 0.010766209000000006,
+          "memo": 0.010807000000000011
+        },
+        "runtime_basis": "single_workflow_wall_clock",
+        "active_elapsed_seconds": 0.043230791000000005,
+        "end_to_end_wall_seconds": 0.043230791000000005,
+        "wall_window_seconds": 0.042739,
+        "phase_started_at": "2026-10-11T05:56:35.099281+00:00",
+        "memo_attempts": [
+          {
+            "elapsed_seconds": 0.010807000000000011,
+            "cached": true,
+            "completed": true,
+            "error": null
+          }
+        ],
+        "memo_elapsed_seconds": 0.010807000000000011,
+        "memo_model": "gpt-4.1-mini-2025-04-14",
+        "memo_config": "e13599c5c43f221b074f77637078a1de3b489e39cebce1f657006ffb9c69d881",
+        "memo_complete": true,
+        "jev_elapsed_seconds": 0.029706124999999993,
+        "active_execution_seconds": 0.040513125000000004,
+        "wall_elapsed_seconds": 0.043230791000000005,
+        "pause_seconds": 0,
+        "timing_note": "Active execution sums nonoverlapping Jev and memo invocations including their overhead. Cold wall window begins at manifest creation and includes pauses. Warm wall duration is unknown unless its own phase_started_at is recorded; pause is the measured wall-minus-active remainder, including between-command overhead.",
+        "memo": {
+          "cache_hit": true,
+          "complete": true,
+          "error": null,
+          "path": "artifacts/pilot/memo.json"
+        },
+        "workflow_invocation_seconds": 0.043230791000000005,
+        "workflow_invocation_started_at": "2026-10-11T05:56:35.099281+00:00"
+      },
+      "saved_status_counts": {
+        "completed": 100
+      },
+      "attempts": 0,
+      "failed_attempts": 0,
+      "new_enrichment_calls": 0,
+      "unknown_cost_attempts": 0,
+      "known_api_cost_usd": "0",
+      "total_api_cost_usd": "0",
+      "elapsed_seconds": 0.043230791000000005,
+      "runtime_basis": "single_workflow_wall_clock",
+      "active_elapsed_seconds": 0.043230791000000005,
+      "wall_elapsed_seconds": 0.043230791000000005,
+      "pause_seconds": 0.0,
+      "input_rows_per_second": 2313.1660949715215,
+      "api_cost_per_1000_inputs_usd": "0",
+      "api_cost_per_completed_record_usd": "0",
+      "local_compute_cost_usd": null
+    }
+  },
+  "projection": {
+    "available": true,
+    "full_nonempty": 660609,
+    "full_unique": 484189,
+    "scenarios": [
+      {
+        "name": "base_exact_reuse",
+        "estimated": true,
+        "api_cost_usd": "31.10037395788",
+        "stage_api_cost_usd": {
+          "enrich": "24.23291379894",
+          "verify": "3.23152746966",
+          "group": "3.63118508928",
+          "memo": "0.0047476"
+        },
+        "elapsed_seconds": 26544.48796324516,
+        "enrichment_work_items": 484189,
+        "runtime_basis": "active_attempts",
+        "expected_verified_records": 66060.90000000001,
+        "expected_unique_complaint_grouping_items": 251778.28,
+        "variable_stage_multiplier": 1,
+        "over_budget": true,
+        "local_compute_cost_usd": null
+      },
+      {
+        "name": "conservative_exact_reuse",
+        "estimated": true,
+        "api_cost_usd": "38.8742805473500",
+        "stage_api_cost_usd": {
+          "enrich": "30.2911422486750",
+          "verify": "4.0394093370750",
+          "group": "4.5389813616000",
+          "memo": "0.0047476"
+        },
+        "elapsed_seconds": 33135.944055491804,
+        "enrichment_work_items": 484189,
+        "runtime_basis": "active_attempts",
+        "expected_verified_records": 66060.90000000001,
+        "expected_unique_complaint_grouping_items": 251778.28,
+        "variable_stage_multiplier": 1.25,
+        "over_budget": true,
+        "local_compute_cost_usd": null
+      },
+      {
+        "name": "base_no_reuse",
+        "estimated": true,
+        "api_cost_usd": "41.25298858948",
+        "stage_api_cost_usd": {
+          "enrich": "33.06246311214",
+          "verify": "3.23152746966",
+          "group": "4.95425040768",
+          "memo": "0.0047476"
+        },
+        "elapsed_seconds": 35394.886004566564,
+        "enrichment_work_items": 660609,
+        "runtime_basis": "active_attempts",
+        "expected_verified_records": 66060.90000000001,
+        "expected_unique_complaint_grouping_items": 343516.68,
+        "variable_stage_multiplier": 1,
+        "over_budget": true,
+        "local_compute_cost_usd": null
+      },
+      {
+        "name": "conservative_no_reuse",
+        "estimated": true,
+        "api_cost_usd": "51.5650488368500",
+        "stage_api_cost_usd": {
+          "enrich": "41.3280788901750",
+          "verify": "4.0394093370750",
+          "group": "6.1928130096000",
+          "memo": "0.0047476"
+        },
+        "elapsed_seconds": 44198.941607143555,
+        "enrichment_work_items": 660609,
+        "runtime_basis": "active_attempts",
+        "expected_verified_records": 66060.90000000001,
+        "expected_unique_complaint_grouping_items": 343516.68,
+        "variable_stage_multiplier": 1.25,
+        "over_budget": true,
+        "local_compute_cost_usd": null
+      }
+    ],
+    "reasons": [],
+    "observed_verification_rate": 0.1,
+    "observed_unique_complaint_fraction": 0.52,
+    "runtime_estimate_available": true
+  },
+  "pilot_complete": true,
+  "call_evidence": {
+    "version": "cost-replay-v1",
+    "currency": "USD",
+    "actual": {
+      "attempts": 36,
+      "failed_attempts": 2,
+      "priced_attempts": 36,
+      "unknown_cost_attempts": 0,
+      "calculated_api_cost_known_subtotal_usd": "0.010991572",
+      "api_cost_complete": true,
+      "reported_cost_known_subtotal_usd": "0.010991572",
+      "reported_cost_attempts": 36,
+      "call_window_seconds": 413.173866,
+      "sum_request_seconds": 16.378656,
+      "missing_or_invalid_timing_attempts": 0,
+      "end_to_end_wall_seconds": null,
+      "local_compute_cost_usd": null
+    },
+    "groups": [
+      {
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "attempts": 21,
+        "failed_attempts": 1,
+        "priced_attempts": 21,
+        "unknown_cost_attempts": 0,
+        "calculated_api_cost_known_subtotal_usd": "0.005004846",
+        "api_cost_complete": true,
+        "reported_cost_known_subtotal_usd": "0.005004846",
+        "reported_cost_attempts": 21,
+        "call_window_seconds": 106.938511,
+        "sum_request_seconds": 3.0555110000000005,
+        "missing_or_invalid_timing_attempts": 0,
+        "end_to_end_wall_seconds": null,
+        "local_compute_cost_usd": null
+      },
+      {
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "attempts": 11,
+        "failed_attempts": 0,
+        "priced_attempts": 11,
+        "unknown_cost_attempts": 0,
+        "calculated_api_cost_known_subtotal_usd": "0.000749952",
+        "api_cost_complete": true,
+        "reported_cost_known_subtotal_usd": "0.000749952",
+        "reported_cost_attempts": 11,
+        "call_window_seconds": 1.706833,
+        "sum_request_seconds": 1.469781,
+        "missing_or_invalid_timing_attempts": 0,
+        "end_to_end_wall_seconds": null,
+        "local_compute_cost_usd": null
+      },
+      {
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "memo",
+        "attempts": 2,
+        "failed_attempts": 1,
+        "priced_attempts": 2,
+        "unknown_cost_attempts": 0,
+        "calculated_api_cost_known_subtotal_usd": "0.0047476",
+        "api_cost_complete": true,
+        "reported_cost_known_subtotal_usd": "0.0047476",
+        "reported_cost_attempts": 2,
+        "call_window_seconds": 101.967274,
+        "sum_request_seconds": 11.562762,
+        "missing_or_invalid_timing_attempts": 0,
+        "end_to_end_wall_seconds": null,
+        "local_compute_cost_usd": null
+      },
+      {
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "verify",
+        "attempts": 2,
+        "failed_attempts": 0,
+        "priced_attempts": 2,
+        "unknown_cost_attempts": 0,
+        "calculated_api_cost_known_subtotal_usd": "0.000489174",
+        "api_cost_complete": true,
+        "reported_cost_known_subtotal_usd": "0.000489174",
+        "reported_cost_attempts": 2,
+        "call_window_seconds": 0.302903,
+        "sum_request_seconds": 0.290602,
+        "missing_or_invalid_timing_attempts": 0,
+        "end_to_end_wall_seconds": null,
+        "local_compute_cost_usd": null
+      }
+    ],
+    "calls": [
+      {
+        "request_id": "165c7ac1721347fbbb6235cd1ca7bded",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "failed",
+        "started_at": "2026-10-11T05:49:26.867344+00:00",
+        "ended_at": "2026-10-11T05:49:27.053336+00:00",
+        "calculated_cost_usd": "0.000236208",
+        "reported_cost_usd": "0.000236208",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "29947ca93d404e398b37ad9974b33e75",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:01.485466+00:00",
+        "ended_at": "2026-10-11T05:51:01.632406+00:00",
+        "calculated_cost_usd": "0.000236208",
+        "reported_cost_usd": "0.000236208",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "662da064c6d643ccb75433899e3a89c1",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:10.884031+00:00",
+        "ended_at": "2026-10-11T05:51:11.030794+00:00",
+        "calculated_cost_usd": "0.000236166",
+        "reported_cost_usd": "0.000236166",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "0178eaeb27064517886d231d3f02a5c4",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:11.035155+00:00",
+        "ended_at": "2026-10-11T05:51:11.173345+00:00",
+        "calculated_cost_usd": "0.000238644",
+        "reported_cost_usd": "0.000238644",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "c66bf4803b734ba991652acd12db3000",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:11.183630+00:00",
+        "ended_at": "2026-10-11T05:51:11.313450+00:00",
+        "calculated_cost_usd": "0.000239736",
+        "reported_cost_usd": "0.000239736",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "6b0b1cc6342942a591012b6d65669b80",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:11.323624+00:00",
+        "ended_at": "2026-10-11T05:51:11.480236+00:00",
+        "calculated_cost_usd": "0.000241248",
+        "reported_cost_usd": "0.000241248",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "60b7b7f76341460ca4d4e1e7128c348e",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:11.491941+00:00",
+        "ended_at": "2026-10-11T05:51:11.637747+00:00",
+        "calculated_cost_usd": "0.000243096",
+        "reported_cost_usd": "0.000243096",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "7b837addf7574556b5be566c53b4fa83",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:11.642671+00:00",
+        "ended_at": "2026-10-11T05:51:11.794753+00:00",
+        "calculated_cost_usd": "0.000235494",
+        "reported_cost_usd": "0.000235494",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "4e55ed11534a4002ac6c81f20ca9a98c",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:11.799158+00:00",
+        "ended_at": "2026-10-11T05:51:11.947453+00:00",
+        "calculated_cost_usd": "0.000239862",
+        "reported_cost_usd": "0.000239862",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "fa32de39195d4e5c9151f49c22cc9cad",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:11.953652+00:00",
+        "ended_at": "2026-10-11T05:51:12.087338+00:00",
+        "calculated_cost_usd": "0.000236796",
+        "reported_cost_usd": "0.000236796",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "8a973cb9a112483fb707743fed8dfd6e",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:12.092180+00:00",
+        "ended_at": "2026-10-11T05:51:12.217521+00:00",
+        "calculated_cost_usd": "0.000235578",
+        "reported_cost_usd": "0.000235578",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "55fae9b9b64645c38b28878bd8c131bd",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:12.227788+00:00",
+        "ended_at": "2026-10-11T05:51:12.366991+00:00",
+        "calculated_cost_usd": "0.000241416",
+        "reported_cost_usd": "0.000241416",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "1279f58a9a4d42aa849dbf246c4a15e9",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:12.383027+00:00",
+        "ended_at": "2026-10-11T05:51:12.536033+00:00",
+        "calculated_cost_usd": "0.000237258",
+        "reported_cost_usd": "0.000237258",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "4afd846aacbd44449aa8995e4af809f3",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:12.547504+00:00",
+        "ended_at": "2026-10-11T05:51:12.701558+00:00",
+        "calculated_cost_usd": "0.000238182",
+        "reported_cost_usd": "0.000238182",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "2bd20d241571495d8562dc370ddaa693",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:12.716177+00:00",
+        "ended_at": "2026-10-11T05:51:12.848778+00:00",
+        "calculated_cost_usd": "0.000238098",
+        "reported_cost_usd": "0.000238098",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "1c92c36041524e4bb1cacbf6d1372381",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:12.856407+00:00",
+        "ended_at": "2026-10-11T05:51:13.008977+00:00",
+        "calculated_cost_usd": "0.000236334",
+        "reported_cost_usd": "0.000236334",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "8a187b3f061949a79ef7bd0bf93354df",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:13.024066+00:00",
+        "ended_at": "2026-10-11T05:51:13.171961+00:00",
+        "calculated_cost_usd": "0.000238098",
+        "reported_cost_usd": "0.000238098",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "b7cf1c2d4f9a43b6a9bca6148bd08fff",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:13.189085+00:00",
+        "ended_at": "2026-10-11T05:51:13.347983+00:00",
+        "calculated_cost_usd": "0.00024192",
+        "reported_cost_usd": "0.00024192",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "76f3496302a2459597307a7917aaac7d",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:13.362955+00:00",
+        "ended_at": "2026-10-11T05:51:13.490383+00:00",
+        "calculated_cost_usd": "0.000240534",
+        "reported_cost_usd": "0.000240534",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "35a8e5b828f242289ec75dafc687045c",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:13.506779+00:00",
+        "ended_at": "2026-10-11T05:51:13.639251+00:00",
+        "calculated_cost_usd": "0.000237762",
+        "reported_cost_usd": "0.000237762",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "dfe97f22d26c454f8c6741f0280c86af",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "enrich",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:13.657998+00:00",
+        "ended_at": "2026-10-11T05:51:13.805855+00:00",
+        "calculated_cost_usd": "0.000236208",
+        "reported_cost_usd": "0.000236208",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "c89e09446a4d451189896eb8e6e587aa",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "verify",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:13.829620+00:00",
+        "ended_at": "2026-10-11T05:51:13.977442+00:00",
+        "calculated_cost_usd": "0.000242844",
+        "reported_cost_usd": "0.000242844",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "726944e668f143d9812310220a6746eb",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "verify",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:13.989743+00:00",
+        "ended_at": "2026-10-11T05:51:14.132523+00:00",
+        "calculated_cost_usd": "0.00024633",
+        "reported_cost_usd": "0.00024633",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "700d1ef817eb4e0d8533e7fdccd34231",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:14.147825+00:00",
+        "ended_at": "2026-10-11T05:51:14.291002+00:00",
+        "calculated_cost_usd": "0.000064554",
+        "reported_cost_usd": "0.000064554",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "75606ff8728048fb98c48084a0422474",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:14.321535+00:00",
+        "ended_at": "2026-10-11T05:51:14.465012+00:00",
+        "calculated_cost_usd": "0.000072198",
+        "reported_cost_usd": "0.000072198",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "fd2f6213add54398a2313fe167a95eff",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:14.490580+00:00",
+        "ended_at": "2026-10-11T05:51:14.593864+00:00",
+        "calculated_cost_usd": "0.00007308",
+        "reported_cost_usd": "0.00007308",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "eba3c1ab0b8b43d2af02de82a4d2f0fe",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:14.621787+00:00",
+        "ended_at": "2026-10-11T05:51:14.782320+00:00",
+        "calculated_cost_usd": "0.00007434",
+        "reported_cost_usd": "0.00007434",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "46213a15a679434a8d6f58b0811fe8af",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:14.815626+00:00",
+        "ended_at": "2026-10-11T05:51:14.966638+00:00",
+        "calculated_cost_usd": "0.000074046",
+        "reported_cost_usd": "0.000074046",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "aae8e8b3181a42d8adc63ae4404d9e49",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:14.984186+00:00",
+        "ended_at": "2026-10-11T05:51:15.139820+00:00",
+        "calculated_cost_usd": "0.000075642",
+        "reported_cost_usd": "0.000075642",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "30e69565d2a7428e9bfad14ae28a4f07",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:15.163660+00:00",
+        "ended_at": "2026-10-11T05:51:15.319092+00:00",
+        "calculated_cost_usd": "0.000073416",
+        "reported_cost_usd": "0.000073416",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "d7c1d5dc3eec4fd2962b95d144cf469a",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:15.338152+00:00",
+        "ended_at": "2026-10-11T05:51:15.451365+00:00",
+        "calculated_cost_usd": "0.000065646",
+        "reported_cost_usd": "0.000065646",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "8b47c6be7fa24b86bca09b0ec4300e22",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:15.474843+00:00",
+        "ended_at": "2026-10-11T05:51:15.592710+00:00",
+        "calculated_cost_usd": "0.000069048",
+        "reported_cost_usd": "0.000069048",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "f091bd0b5a18410385ce38385a8d4472",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:15.610845+00:00",
+        "ended_at": "2026-10-11T05:51:15.720597+00:00",
+        "calculated_cost_usd": "0.000071316",
+        "reported_cost_usd": "0.000071316",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "612d80161d374230a1b6129415a96d1f",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "group",
+        "model": "jev-1.13.0",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:51:15.738258+00:00",
+        "ended_at": "2026-10-11T05:51:15.854658+00:00",
+        "calculated_cost_usd": "0.000036666",
+        "reported_cost_usd": "0.000036666",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "d0c5741401f54fc88a3771ed386095a1",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "memo",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "outcome": "failed",
+        "started_at": "2026-10-11T05:54:38.073936+00:00",
+        "ended_at": "2026-10-11T05:54:44.878826+00:00",
+        "calculated_cost_usd": "0.0025512",
+        "reported_cost_usd": "0.0025512",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      },
+      {
+        "request_id": "f5e2dcc5176a4dfd825b7092846f3996",
+        "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+        "run_phase": "cold",
+        "role": "memo",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "outcome": "succeeded",
+        "started_at": "2026-10-11T05:56:15.283338+00:00",
+        "ended_at": "2026-10-11T05:56:20.041210+00:00",
+        "calculated_cost_usd": "0.0021964",
+        "reported_cost_usd": "0.0021964",
+        "unknown_cost_reasons": [],
+        "evidence_warnings": []
+      }
+    ],
+    "rates": [
+      {
+        "model": "jev-1.13.0",
+        "input_per_million": "0.042",
+        "output_per_million": "0",
+        "cached_input_per_million": "0.042",
+        "source_url": "https://docs.typesafe.ai/models",
+        "checked_at": "2026-10-10"
+      },
+      {
+        "model": "gpt-4.1-mini-2025-04-14",
+        "input_per_million": "0.40",
+        "output_per_million": "1.60",
+        "cached_input_per_million": "0.10",
+        "source_url": "https://developers.openai.com/api/docs/models/gpt-4.1-mini",
+        "checked_at": "2026-10-10"
+      }
+    ],
+    "projection": {
+      "requested_volume": 660622,
+      "available": false,
+      "reason": "Call logs alone lack pilot input identity, completed counts, stage work counts, measured end-to-end time and scaling assumptions."
+    },
+    "limitations": [
+      "Known subtotal excludes unknown costs; it is not a complete bill.",
+      "Editable-rate calculations are distinct from provider-reported charges.",
+      "Call windows exclude preparation, queue gaps outside calls, and other pipeline overhead.",
+      "A zero-call warm run requires separate run metadata; empty logs do not prove a successful warm run."
+    ]
+  },
+  "assumptions": [
+    "Projections are estimates from 100 reviews, not executed full-run results; refresh at 500 and 10000.",
+    "Same model configuration, worker limit, review mix, verification fraction and observed retry/fallback mix are assumed.",
+    "Exact-result reuse applies to enrichment/grouping; random verification remains over original IDs.",
+    "Grouping scales with observed unique complaint share; memo cost occurs once and is not multiplied by review count.",
+    "Conservative scenarios add 25% variable model cost/time for higher retries/fallbacks; this is an editable planning assumption in code, not measured overhead.",
+    "Runtime requires nonoverlapping stage elapsed times; no linear parallel speedup is assumed.",
+    "Active-attempt runtime excludes pauses between invocations; wall elapsed and pause duration are shown only if separately measured.",
+    "Missing local compute costs remain unknown. Pilot completion does not certify source checksum, human labels or grading compliance."
+  ]
+}

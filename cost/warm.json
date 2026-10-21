@@ -1,0 +1,106 @@
+{
+  "phase": "warm",
+  "run_id": "b0aafb65d8954d3c9920383a0bfeabd6",
+  "db_path": "/Users/sebastianbardacostaartagaveytia/Desktop/Final Project/artifacts/pilot/pilot.sqlite",
+  "input_count": 100,
+  "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+  "unique_nonempty_texts": 100,
+  "budget_usd": 5.0,
+  "max_workers": 1,
+  "batch_size": 5,
+  "status_counts": {
+    "completed": 100
+  },
+  "attempts": [
+    {
+      "elapsed_seconds": 0.029706124999999993,
+      "stages_completed": [
+        "prepare",
+        "enrich",
+        "verify",
+        "group",
+        "rank"
+      ],
+      "stage_seconds": {
+        "prepare": 0.0038727499999999943,
+        "enrich": 0.0006394579999999955,
+        "verify": 0.0001784579999999994,
+        "group": 0.0004287499999999986,
+        "rank": 0.010766209000000006
+      },
+      "stage_times_seconds": {
+        "prepare": 0.0038727499999999943,
+        "enrich": 0.0006394579999999955,
+        "verify": 0.0001784579999999994,
+        "group": 0.0004287499999999986,
+        "rank": 0.010766209000000006
+      },
+      "error": null
+    }
+  ],
+  "elapsed_seconds": 0.043230791000000005,
+  "stages_completed": [
+    "enrich",
+    "group",
+    "memo",
+    "prepare",
+    "rank",
+    "verify"
+  ],
+  "stage_seconds": {
+    "prepare": 0.0038727499999999943,
+    "enrich": 0.0006394579999999955,
+    "verify": 0.0001784579999999994,
+    "group": 0.0004287499999999986,
+    "rank": 0.010766209000000006,
+    "memo": 0.010807000000000011
+  },
+  "jev_stages_complete": true,
+  "full_pilot_complete": true,
+  "remaining": [],
+  "error": null,
+  "ledger": {
+    "id": "b0aafb65d8954d3c9920383a0bfeabd6",
+    "budget": 5.0,
+    "spent": 0.010991572,
+    "reserved": 0.0
+  },
+  "stage_times_seconds": {
+    "prepare": 0.0038727499999999943,
+    "enrich": 0.0006394579999999955,
+    "verify": 0.0001784579999999994,
+    "group": 0.0004287499999999986,
+    "rank": 0.010766209000000006,
+    "memo": 0.010807000000000011
+  },
+  "runtime_basis": "single_workflow_wall_clock",
+  "active_elapsed_seconds": 0.043230791000000005,
+  "end_to_end_wall_seconds": 0.043230791000000005,
+  "wall_window_seconds": 0.042739,
+  "phase_started_at": "2026-10-11T05:56:35.099281+00:00",
+  "memo_attempts": [
+    {
+      "elapsed_seconds": 0.010807000000000011,
+      "cached": true,
+      "completed": true,
+      "error": null
+    }
+  ],
+  "memo_elapsed_seconds": 0.010807000000000011,
+  "memo_model": "gpt-4.1-mini-2025-04-14",
+  "memo_config": "e13599c5c43f221b074f77637078a1de3b489e39cebce1f657006ffb9c69d881",
+  "memo_complete": true,
+  "jev_elapsed_seconds": 0.029706124999999993,
+  "active_execution_seconds": 0.040513125000000004,
+  "wall_elapsed_seconds": 0.043230791000000005,
+  "pause_seconds": 0,
+  "timing_note": "Active execution sums nonoverlapping Jev and memo invocations including their overhead. Cold wall window begins at manifest creation and includes pauses. Warm wall duration is unknown unless its own phase_started_at is recorded; pause is the measured wall-minus-active remainder, including between-command overhead.",
+  "memo": {
+    "cache_hit": true,
+    "complete": true,
+    "error": null,
+    "path": "artifacts/pilot/memo.json"
+  },
+  "workflow_invocation_seconds": 0.043230791000000005,
+  "workflow_invocation_started_at": "2026-10-11T05:56:35.099281+00:00"
+}

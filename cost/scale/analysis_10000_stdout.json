@@ -1,0 +1,19 @@
+{
+  "name": "analysis_10000",
+  "status_counts": {
+    "completed": 10000
+  },
+  "ledger": {
+    "id": "62eef1f314814fbca103b8e8c0bf4f54",
+    "budget": 1.5,
+    "spent": 0.4810083599999989,
+    "reserved": -3.469446951953614e-18
+  },
+  "cost_by_role_usd": {
+    "enrich": "0.381809988",
+    "group": "0.057388884",
+    "verify": "0.041809488"
+  },
+  "stages_complete": true,
+  "error": null
+}
