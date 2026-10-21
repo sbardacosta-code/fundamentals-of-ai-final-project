@@ -1,0 +1,82 @@
+{
+  "name": "demo_50",
+  "run_id": "45252eb0391c43d5b01c48d998d122de",
+  "input": "data/scale/demo_resume_50.csv",
+  "dataset_id": "0b3f9dcc6994f9ee5bfe7305f3845b92c4c0c14e8b4a751c7eeb486c102fb936",
+  "enrichment_config": "a9929aa2409ac9970c4d5fb000aa7560eaa8ace0995c56d3a927adbb4781da12",
+  "budget_usd": 0.05,
+  "ledger": {
+    "id": "45252eb0391c43d5b01c48d998d122de",
+    "budget": 0.05,
+    "spent": 0.0029169,
+    "reserved": 0.0
+  },
+  "remaining_budget_usd": 0.0470831,
+  "status_counts": {
+    "completed": 50
+  },
+  "calls_by_role_outcome": {
+    "enrich:succeeded": 10,
+    "group:succeeded": 6,
+    "verify:succeeded": 1
+  },
+  "cost_by_role_usd": {
+    "enrich": "0.002289798",
+    "group": "0.000380520",
+    "verify": "0.000246582"
+  },
+  "cache_reused_rows": 2,
+  "stages_complete": true,
+  "attempts": [
+    {
+      "started_at": "2026-10-21T17:45:42.761439+00:00",
+      "elapsed_seconds": 1.014709958,
+      "workers": 2,
+      "batch_size": 5,
+      "requests_per_second": 4.0,
+      "stages_completed": [
+        "prepare"
+      ],
+      "stage_seconds": {
+        "prepare": 0.006600958000000004,
+        "enrich": 1.004496917
+      },
+      "counters": {
+        "batches": 4,
+        "requests": 4,
+        "invalid": 0,
+        "rate_limited": 0
+      },
+      "error": "enrich: Requested checkpoint after saved batches"
+    },
+    {
+      "started_at": "2026-10-21T17:45:47.929220+00:00",
+      "elapsed_seconds": 3.2199345409999998,
+      "workers": 2,
+      "batch_size": 5,
+      "requests_per_second": 4.0,
+      "stages_completed": [
+        "prepare",
+        "enrich",
+        "verify",
+        "group",
+        "rank"
+      ],
+      "stage_seconds": {
+        "prepare": 0.04231225000000001,
+        "enrich": 1.4117744579999998,
+        "verify": 0.2388554580000002,
+        "group": 1.4908247920000002,
+        "rank": 0.005429125000000035
+      },
+      "counters": {
+        "batches": 13,
+        "requests": 13,
+        "invalid": 0,
+        "rate_limited": 0
+      },
+      "error": null
+    }
+  ],
+  "error": null
+}

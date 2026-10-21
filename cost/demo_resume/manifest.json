@@ -1,0 +1,25 @@
+{
+  "identity": {
+    "dataset_id": "0b3f9dcc6994f9ee5bfe7305f3845b92c4c0c14e8b4a751c7eeb486c102fb936",
+    "enrichment_config": "a9929aa2409ac9970c4d5fb000aa7560eaa8ace0995c56d3a927adbb4781da12",
+    "verification_config": "5d4f7dcc840c53989c708c80f6ce8f2acd5dc86247324fa8c4eae1ff0e4a5eda",
+    "grouping_config": "34aeb385c7455281e722cb30ec4d65550addd5b01d6fabf8ce8330789c654682",
+    "batch_size": 5,
+    "verify_rate": "0.10"
+  },
+  "run_id": "45252eb0391c43d5b01c48d998d122de",
+  "budget_usd": 0.05,
+  "name": "demo_50",
+  "input": "data/scale/demo_resume_50.csv",
+  "input_rows": 50,
+  "unique_nonempty_texts": 48,
+  "verification_ids": [
+    "5734cf60-be04-481b-81fd-dce76438f16d",
+    "0697a14f-7753-40b5-a3de-bf073c5af195",
+    "8377d2f2-f8cc-4a36-b5ad-05939b74e668",
+    "84821de1-394f-45e7-a2c5-c1bf73708d81",
+    "403cb052-32a4-4913-aeed-eb50ff21b8a1"
+  ],
+  "created_at": "2026-10-21T17:45:42.761439+00:00",
+  "stages_complete": true
+}
