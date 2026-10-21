@@ -58,14 +58,14 @@ Each step was approved separately by the student with its projected cost and har
 | Cost evidence and calculator | Pilot calculator [`cost/report.md`](cost/report.md) (`python3 -m review_pipeline.pilot_report cost`, offline), [measured scale runs](cost/scale/README.md), [100k sample plan](cost/scale_plan.json) |
 | Memo | [`grading/memo_reviewed.md`](grading/memo_reviewed.md) (human-reviewed and approved), original model output [`grading/memo.json`](grading/memo.json) |
 | Dashboard, backend, database | https://fundamentals-of-ai-spotify-insights.vercel.app, [`dashboard/`](dashboard) |
-| Interruption and resume | [`grading/checkpoint_before.json`](grading/checkpoint_before.json) (104 IDs) → [`grading/checkpoint_after.json`](grading/checkpoint_after.json) |
+| Interruption and resume | Screen recording [`evidence/interruption-resume-demo.mp4`](evidence/interruption-resume-demo.mp4) (50 fresh reviews, interrupted at 20, resumed to 50, 0 re-sent, $0.0029; script [`scripts/demo_resume.sh`](scripts/demo_resume.sh), evidence [`cost/demo_resume/`](cost/demo_resume)); graded run [`grading/checkpoint_before.json`](grading/checkpoint_before.json) (104 IDs) → [`grading/checkpoint_after.json`](grading/checkpoint_after.json) |
 | Checker self-check | [`cost/self-check-100k.json`](cost/self-check-100k.json) |
 
 ## Current status (2026-10-21)
 
-Done and measured: 100,000-review run, blind verification, grouping, ranking, Haiku memo (human-reviewed), grading export with checker self-check, deployed dashboard with backend, database and animated walkthrough, evaluation against the student's 50 human golden labels, 106 passing tests.
+Done and measured: 100,000-review run, blind verification, grouping, ranking, Haiku memo (human-reviewed), grading export with checker self-check, deployed dashboard with backend, database and animated walkthrough, evaluation against the student's 50 human golden labels, recorded interruption/resume demo, 106 passing tests.
 
-Pending: the short screen recording of interruption and resume (the written before/after checkpoint evidence is in `grading/`). Scope is the instructor's 100,000-review target, not the full 660,622-row corpus ([why](research/scope-and-grade-2026-10-21.md)).
+Pending: nothing required. Scope is the instructor's 100,000-review target, not the full 660,622-row corpus ([why](research/scope-and-grade-2026-10-21.md)).
 
 ## Reproduce the scaled run
 
