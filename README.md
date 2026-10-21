@@ -46,6 +46,46 @@ Each step was approved separately by the student with its projected cost and har
 
 `grading/` follows the contract (`python3 -m review_pipeline.grading_export`). The supplied zero-API checker, run with the 100,000 sample as `--analysis`, reports 100,000 of 100,000 IDs accounted for, 99,994 valid completed, 6 quarantined after two invalid Jev outputs, 21,900 valid cache reuses, and a working coverage candidate of 1.0; its only flag is `unfinished_classification: 6`. See [cost/self-check-100k.json](cost/self-check-100k.json). Against the full 660,622-row corpus the same evidence would cover only about 15% of rows; see [grading evaluation](research/scope-and-grade-2026-10-21.md).
 
+## Where to find everything
+
+| What the brief asks for | Where it is |
+| --- | --- |
+| Runnable code and setup | `review_pipeline/` (Python 3.9+, standard library; `anthropic` package only for the Haiku memo), [Run locally](#run-locally) |
+| Role prompts | Enrichment and verification rubric: [`review_pipeline/jev.py`](review_pipeline/jev.py) (`TOPICS`, `INTENTS`, `SEVERITIES`, `build_request`); grouping catalog and prompt: [`review_pipeline/grouping.py`](review_pipeline/grouping.py); memo prompt: [`review_pipeline/memo.py`](review_pipeline/memo.py) (`PROMPT`) with the Haiku request in [`review_pipeline/scale_memo.py`](review_pipeline/scale_memo.py) |
+| Architecture | [Architecture](#architecture-orchestration-not-a-swarm) above; orchestrator [`review_pipeline/scale.py`](review_pipeline/scale.py) |
+| Saved outputs | [`grading/`](grading) (contract export), [`cost/scale/`](cost/scale) (per-checkpoint records, calls, memos) |
+| Evaluation | [Verifier analysis](research/verification-analysis-100k.md), optimization quality gates in [`cost/README.md`](cost/README.md), synthetic robustness tests in [`tests/`](tests); human golden-label evaluation pending (see below) |
+| Cost evidence and calculator | Pilot calculator [`cost/report.md`](cost/report.md) (`python3 -m review_pipeline.pilot_report cost`, offline), [measured scale runs](cost/scale/README.md), [100k sample plan](cost/scale_plan.json) |
+| Memo | [`grading/memo.json`](grading/memo.json) (validated, human review pending) |
+| Dashboard, backend, database | https://fundamentals-of-ai-spotify-insights.vercel.app, [`dashboard/`](dashboard) |
+| Interruption and resume | [`grading/checkpoint_before.json`](grading/checkpoint_before.json) (104 IDs) → [`grading/checkpoint_after.json`](grading/checkpoint_after.json) |
+| Checker self-check | [`cost/self-check-100k.json`](cost/self-check-100k.json) |
+
+## Current status (2026-10-21)
+
+Done and measured: 100,000-review run, blind verification, grouping, ranking, Haiku memo, grading export with checker self-check, deployed dashboard with backend and database, 106 passing tests.
+
+Pending: the student's 50 human golden labels and the evaluation against them; human review of the generated memo; the short screen recording of interruption and resume. Scope is the instructor's 100,000-review target, not the full 660,622-row corpus ([why](research/scope-and-grade-2026-10-21.md)).
+
+## Reproduce the scaled run
+
+```sh
+python3 -m review_pipeline.scale_plan                       # offline: sample, duplicates, cost model
+python3 -m review_pipeline.scale --input data/scale/sample_100000.csv --name sample_100000 \
+  --expected-rows 100000 --budget-usd 6 --workers 8 --requests-per-second 16 --execute-paid   # paid, Jev
+python3 -m review_pipeline.scale_memo sample_100000 --budget-usd 0.10 --execute-paid        # paid, Haiku
+python3 -m review_pipeline.grading_export                    # offline
+python3 data/source/check_submission.py reference --full data/source/spotify_reviews_18months.csv \
+  --analysis data/scale/sample_100000.csv --out local-reference.json
+python3 data/source/check_submission.py check --reference local-reference.json --submission grading --out self-check.json
+```
+
+Re-running a completed checkpoint makes no new calls: every task is already in the cache. Paid commands refuse to run without `--execute-paid`, and each ledger's cap is fixed when created.
+
+## Project history (kept for the grading record)
+
+Sections below describe the project at the time they were written. Statements such as "not yet deployed" or "pending" in them were true then and are superseded by the status above.
+
 ## Scale checkpoints — October 20, 2026
 
 Measured, with explicit student approval for each checkpoint and cap (separate ledgers in `artifacts/scale/scale.sqlite`; the $5 pilot ledger is untouched):
@@ -58,7 +98,7 @@ Measured, with explicit student approval for each checkpoint and cap (separate l
 
 Recommendation memos use **Claude Haiku 5.5** (`claude-haiku-5-5`, Anthropic API credits) as the separate lightweight generative model: checkpoint_500 needed one retry after the validator rejected an invented claim ID ($0.002135 total); analysis_10000 passed first time ($0.000999). Jev remains the only classifier. The 500 checkpoint includes a saved interruption and resume (`checkpoint_before.json` 104 → `checkpoint_after.json` 500).
 
-**100,000-review run (measured, completed 2026-10-21 ~05:37 UTC, i.e. after the Oct 20 Pacific midnight deadline):** deterministic sample `data/scale/scale_plan.json` (built by `python3 -m review_pipeline.scale_plan`), 99,994 completed and 6 quarantined after two invalid Jev outputs (visible, not hidden). 21,900 rows reused exact-text cache results. 22,605 successful requests plus 63 billed invalid outputs (each retried once), zero rate limits, 8 workers, ~26.5 minutes. Total Jev spend for the full 100,000 sample across A+B+run: **$4.740785** (0.029115 + 0.481008 + 4.230662), plus $0.004220 of Haiku memos. Modeled before the run: $4.21 for the run itself. This is below the instructor's $10 target by measured rate-calculated usage; it is not a provider invoice. The generated memo still needs human review (it characterizes the general-dissatisfaction issue as "update-related", which is not established by the metrics). Human golden labels, the `grading/` export, the dashboard and the recording remain pending. See [status report](research/status-2026-10-19.md) and [checkpoint plan](research/checkpoint-plan-500-10000.md). Raw call logs are gzip-compressed (`calls.jsonl.gz`).
+**100,000-review run (measured, completed 2026-10-21 ~05:37 UTC, i.e. after the Oct 20 Pacific midnight deadline):** deterministic sample `data/scale/scale_plan.json` (built by `python3 -m review_pipeline.scale_plan`), 99,994 completed and 6 quarantined after two invalid Jev outputs (visible, not hidden). 21,900 rows reused exact-text cache results. 22,605 successful requests plus 63 billed invalid outputs (each retried once), zero rate limits, 8 workers, ~26.5 minutes. Total Jev spend for the full 100,000 sample across A+B+run: **$4.740785** (0.029115 + 0.481008 + 4.230662), plus $0.004220 of Haiku memos. Modeled before the run: $4.21 for the run itself. This is below the instructor's $10 target by measured rate-calculated usage; it is not a provider invoice. The generated memo still needs human review (it characterizes the general-dissatisfaction issue as "update-related", which is not established by the metrics). At that time the `grading/` export and dashboard were still pending; both are now done (see above). See [status report](research/status-2026-10-19.md) and [checkpoint plan](research/checkpoint-plan-500-10000.md). Raw call logs are gzip-compressed (`calls.jsonl.gz`).
 
 ## Latest instructor update — October 11, 2026
 
