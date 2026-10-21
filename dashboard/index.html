@@ -37,6 +37,19 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}tr.issue{cursor:poi
 .anim .cap{margin-top:10px;min-height:66px}.anim .cap b{display:block}.anim .quote{font-style:italic}
 .anim .tags span{display:inline-block;margin:4px 6px 0 0;padding:1px 8px;border-radius:12px;background:var(--accent-soft);font-size:12px}
 .anim .ctl{display:flex;gap:8px;align-items:center;margin-top:8px}.anim button{font:inherit;padding:4px 12px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--text);cursor:pointer}
+
+.journey{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.track{position:relative;display:flex;justify-content:space-between;margin:8px 4px 18px}
+.track:before{content:"";position:absolute;left:0;right:0;top:50%;height:3px;background:var(--line);transform:translateY(-50%)}
+.track .fill{position:absolute;left:0;top:50%;height:3px;background:var(--accent);transform:translateY(-50%);transition:width .6s ease}
+.track .dot{position:relative;width:18px;height:18px;border-radius:50%;background:var(--panel);border:2px solid var(--line);cursor:pointer;transition:all .3s;z-index:1}
+.track .dot.done{background:var(--accent);border-color:var(--accent)}.track .dot.cur{transform:scale(1.45);box-shadow:0 0 0 5px var(--accent-soft)}
+.jcard{display:grid;grid-template-columns:1fr 220px;gap:16px;align-items:start;transition:opacity .35s}.jcard.fade{opacity:0}
+@media (max-width:720px){.jcard{grid-template-columns:1fr}}
+.jcard .when{color:var(--muted);font-size:13px}.jcard h3{margin:2px 0 6px;font-size:18px}.jcard .who{display:inline-block;font-size:12px;padding:1px 8px;border-radius:12px;background:var(--accent-soft);margin-right:6px}
+.jcard .who.fail{background:transparent;border:1px solid var(--warn);color:var(--warn)}
+.meter b{display:block;font-size:13px;color:var(--muted);font-weight:500;margin-top:8px}.meter .v{font-size:20px;font-weight:650}
+.meter .bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden}.meter .bar i{display:block;height:100%;background:var(--bar);transition:width .8s ease}
 </style>
 </head>
 <body>
@@ -59,6 +72,18 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}tr.issue{cursor:poi
 <p class="sub" style="margin-top:8px">A Python orchestrator controls the stages, spending caps and stop conditions (orchestration, not a swarm). Green stages call a model; the rest is deterministic code.</p>
 
 
+
+<h2>How we built it, step by step</h2>
+<div class="journey">
+  <div class="track" id="track"><div class="fill" id="fill"></div></div>
+  <div class="jcard" id="jcard">
+    <div><div class="when" id="j-when"></div><h3 id="j-title"></h3><div id="j-tags"></div><p id="j-body" style="margin:8px 0 0"></p></div>
+    <div class="meter"><b>Reviews classified so far</b><div class="v" id="j-rows"></div><div class="bar"><i id="j-rowbar"></i></div>
+      <b>API spend so far</b><div class="v" id="j-cost"></div><div class="bar"><i id="j-costbar"></i></div><b style="font-size:11px">bar scale: the $10 target</b></div>
+  </div>
+  <div class="ctl" style="display:flex;gap:8px;margin-top:12px"><button id="j-prev">◀</button><button id="j-play">Pause</button><button id="j-next">▶</button><span class="sub" id="j-count" style="margin:0"></span></div>
+</div>
+<p class="sub" style="margin-top:8px">Student decisions and approvals are marked; failed experiments stay visible. Then the next section shows the finished system processing reviews.</p>
 <h2>Watch a review go through the system</h2>
 <div class="anim">
 <svg viewBox="0 0 1000 250" role="img" aria-label="Animated pipeline">
@@ -131,6 +156,34 @@ async function walk(r,idx,my){const ok=()=>my===runId;document.getElementById('w
     move(P.memo);on('memo');cap('7. Memo (once per run)','Claude Haiku 5.5 reads only the aggregated issue numbers and short excerpts, then writes the recommendation; a validator rejects invented numbers or IDs.');await sleep(3200)}
   else{move(P.out);on(null);cap('5. Not grouped',`Intent is ${r.intent}, so it is counted in the label totals but not in the complaint ranking.`,labels);await sleep(3000)}}
 async function play(ex){const my=++runId;wk();while(my===runId){for(let i=0;i<ex.length&&my===runId;i++)await walk(ex[i],i,my)}}
+
+const STEPS=[
+ {w:'Oct 6–8',t:'Requirements and plan',tags:['student decision: Jev is the central engine'],b:'Read the assignment, grading contract and class notes. Chose an orchestrated multi-agent design: queues, exact-text caching, batching and bounded parallel workers.',r:0,c:0},
+ {w:'Oct 10',t:'Foundation',tags:['code'],b:'Ingested and profiled all 660,622 rows, built the SQLite durable queue and exact-text cache (484,189 unique texts), the spending ledger and a blind human-labeling tool.',r:0,c:0},
+ {w:'Oct 10–11',t:'100-review pilot',tags:['student approved $5 cap'],b:'First real run with one worker across all six stages, cold then warm. A planned interruption went from 5 to 100 completed reviews; the warm replay made zero API calls.',r:100,c:0.011},
+ {w:'Oct 10',t:'Cheaper prompt experiments',tags:['8 trials','fail',],b:'Tried shorter prompts and bigger batches. The cheapest finalist cut cost 43% but failed the held-out quality check, so it was rejected and the original classifier kept. The failure is kept in the journal.',r:100,c:0.041},
+ {w:'Oct 11',t:'New target from the professor',tags:['100,000 reviews under $10'],b:'Replanned around a deterministic 100,000-review sample and a lightweight model for the memo.',r:100,c:0.041},
+ {w:'Oct 19',t:'Fixed sample, cost model, parallel runner',tags:['offline, $0'],b:'Built the 100,000 sample with the instructor seed: 78,099 unique texts. Projected $4.91. Wrote the parallel checkpoint runner with hard caps, rate limiting and automatic stop conditions.',r:100,c:0.041},
+ {w:'Oct 20',t:'Checkpoint A: 500 reviews',tags:['student approved $0.25 cap','2 workers'],b:'Measured $0.029 against $0.030 projected. Interrupted at 104 and resumed to 500 without repeating calls. Verifier agreement 47/52.',r:500,c:0.072},
+ {w:'Oct 20',t:'Checkpoint B: 10,000 reviews + Haiku memo',tags:['student approved $1.50 cap','4 workers'],b:'Measured $0.48. 1,552 duplicates reused from cache. Claude Haiku 5.5 writes the memo; the validator caught one invented claim ID and the retry passed.',r:10000,c:0.554},
+ {w:'Oct 21',t:'Final run: 100,000 reviews',tags:['student approved $6 cap','8 workers'],b:'99,994 classified, 6 visibly quarantined, 21,900 cache reuses, about 26 minutes, zero rate limits. Total for the whole sample: $4.75.',r:100000,c:4.79},
+ {w:'Oct 21',t:'Export, dashboard, human evaluation',tags:['student labeled 50 reviews'],b:'Grading export passes the instructor checker for the 100k scope. Dashboard deployed. Against the student\'s labels: topic 84%, intent 86%, severity 68%. Memo reviewed by the student. Interruption/resume recorded.',r:100000,c:4.79},
+];
+let jIdx=0,jTimer=null;
+function jRender(){const st=STEPS[jIdx],card=document.getElementById('jcard');card.classList.add('fade');
+  setTimeout(()=>{document.getElementById('j-when').textContent=st.w;document.getElementById('j-title').textContent=st.t;document.getElementById('j-body').textContent=st.b;
+    const tg=document.getElementById('j-tags');tg.textContent='';st.tags.filter(x=>x!=='fail').forEach(x=>tg.append(el('span',x,'who')));if(st.tags.includes('fail'))tg.append(el('span','rejected experiment','who fail'));
+    document.getElementById('j-rows').textContent=fmt(st.r);document.getElementById('j-rowbar').style.width=(st.r/1000)+'%';
+    document.getElementById('j-cost').textContent='$'+st.c.toFixed(st.c<1?3:2);document.getElementById('j-costbar').style.width=Math.max(st.c*10,st.c?1:0)+'%';
+    document.getElementById('j-count').textContent=`Step ${jIdx+1} of ${STEPS.length}`;card.classList.remove('fade')},250);
+  document.querySelectorAll('#track .dot').forEach((d,i)=>{d.classList.toggle('done',i<=jIdx);d.classList.toggle('cur',i===jIdx)});
+  document.getElementById('fill').style.width=(jIdx/(STEPS.length-1)*100)+'%'}
+function jGo(i){jIdx=(i+STEPS.length)%STEPS.length;jRender()}
+function jAuto(on){clearInterval(jTimer);jTimer=on?setInterval(()=>jGo(jIdx+1),4500):null;document.getElementById('j-play').textContent=on?'Pause':'Play'}
+function jInit(){const tr=document.getElementById('track');STEPS.forEach((st,i)=>{const d=el('div',undefined,'dot');d.title=st.t;d.onclick=()=>{jAuto(false);jGo(i)};tr.append(d)});
+  document.getElementById('j-prev').onclick=()=>{jAuto(false);jGo(jIdx-1)};document.getElementById('j-next').onclick=()=>{jAuto(false);jGo(jIdx+1)};
+  document.getElementById('j-play').onclick=()=>jAuto(!jTimer);jRender();jAuto(true)}
+jInit();
 (async()=>{
   const s=await get({q:'summary'});
   play(s.examples);document.getElementById('replay').onclick=()=>play(s.examples);const t=s.totals;const cp=s.checkpoints;const f=cp.sample_100000;
