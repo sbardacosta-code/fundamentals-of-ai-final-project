@@ -1,0 +1,587 @@
+{
+  "golden_count": 50,
+  "expected_golden_count": 50,
+  "golden_complete": true,
+  "valid_prediction_count": 50,
+  "coverage": 1.0,
+  "accuracy_denominator": 50,
+  "topic_accuracy": 0.84,
+  "intent_accuracy": 0.86,
+  "severity_exact_accuracy": 0.68,
+  "severity_mae": 0.42,
+  "sentiment_mae": 0.24299999999999997,
+  "mae_denominator": 50,
+  "sentiment_tolerance": 0.2,
+  "sentiment_within_tolerance_fraction": 0.66,
+  "human_ambiguity_count": 6,
+  "quote_valid_count": 50,
+  "quote_support": "requires human audit; exact substring alone does not establish support",
+  "entities_exact_fraction": 0.96,
+  "needs_review_exact_fraction": 0.8,
+  "missing_prediction_ids": [],
+  "invalid_predictions": [],
+  "disagreements": [
+    {
+      "review_id": "292ce26a-815d-4bce-a3b6-93cb6c9e7e2c",
+      "differences": {
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.995
+        },
+        "entities": {
+          "human": [
+            "Banning conservative music"
+          ],
+          "predicted": []
+        }
+      }
+    },
+    {
+      "review_id": "a70e8d3e-3f84-46bc-b008-67f476c67963",
+      "differences": {
+        "entities": {
+          "human": [
+            "app"
+          ],
+          "predicted": []
+        }
+      }
+    },
+    {
+      "review_id": "991b6b3a-f511-458a-a5b7-234f78048fb5",
+      "differences": {
+        "severity": {
+          "human": 2,
+          "predicted": 3
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.46499999999999997
+        },
+        "needs_review": {
+          "human": false,
+          "predicted": true
+        }
+      }
+    },
+    {
+      "review_id": "599a0d41-989a-40ef-8ed2-e92db76eea46",
+      "differences": {
+        "sentiment": {
+          "human": -1,
+          "predicted": 0.99
+        }
+      }
+    },
+    {
+      "review_id": "0c6ca545-3f89-4da6-b3db-1a352371fb6e",
+      "differences": {
+        "severity": {
+          "human": 1,
+          "predicted": 2
+        }
+      }
+    },
+    {
+      "review_id": "111f9048-f7bd-4be0-813e-76b8fc49f73f",
+      "differences": {
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.99
+        }
+      }
+    },
+    {
+      "review_id": "b567f70c-edba-4922-ac2a-e945e5eb3472",
+      "differences": {
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.74
+        }
+      }
+    },
+    {
+      "review_id": "b5ee7834-a0eb-4c15-9c7b-935831021922",
+      "differences": {
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.98
+        }
+      }
+    },
+    {
+      "review_id": "1fc8b08f-7d6a-472f-b317-8ceb28d00f22",
+      "differences": {
+        "topic": {
+          "human": "other",
+          "predicted": "billing"
+        },
+        "intent": {
+          "human": "unclear",
+          "predicted": "praise"
+        },
+        "sentiment": {
+          "human": 0,
+          "predicted": 0.905
+        }
+      }
+    },
+    {
+      "review_id": "947821dc-b356-45dc-a0bc-1903728fad40",
+      "differences": {
+        "sentiment": {
+          "human": 0,
+          "predicted": -0.16000000000000003
+        }
+      }
+    },
+    {
+      "review_id": "723f07de-9881-4049-8680-1a9e25652914",
+      "differences": {
+        "intent": {
+          "human": "unclear",
+          "predicted": "complaint"
+        },
+        "severity": {
+          "human": 1,
+          "predicted": 4
+        },
+        "sentiment": {
+          "human": 0,
+          "predicted": 0.1299999999999999
+        },
+        "needs_review": {
+          "human": false,
+          "predicted": true
+        }
+      }
+    },
+    {
+      "review_id": "47428620-ec21-424d-a515-0b0b0012a5cf",
+      "differences": {
+        "severity": {
+          "human": 1,
+          "predicted": 2
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.9
+        }
+      }
+    },
+    {
+      "review_id": "fc344263-308d-48a1-9715-c380d063b6de",
+      "differences": {
+        "intent": {
+          "human": "praise",
+          "predicted": "complaint"
+        },
+        "sentiment": {
+          "human": 1,
+          "predicted": -0.33999999999999997
+        },
+        "needs_review": {
+          "human": false,
+          "predicted": true
+        }
+      }
+    },
+    {
+      "review_id": "6112667b-3d71-475c-b1a4-159b87f73d2b",
+      "differences": {
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.865
+        },
+        "needs_review": {
+          "human": false,
+          "predicted": true
+        }
+      }
+    },
+    {
+      "review_id": "01d453b0-dca3-42e9-8aa4-5fc167b08070",
+      "differences": {
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.13
+        }
+      }
+    },
+    {
+      "review_id": "ac6cd66d-a9d2-42a4-afb8-2f84beff7fd1",
+      "differences": {
+        "topic": {
+          "human": "other",
+          "predicted": "catalog"
+        },
+        "sentiment": {
+          "human": 0,
+          "predicted": -0.18500000000000005
+        }
+      }
+    },
+    {
+      "review_id": "44129679-31a0-4108-9314-086a3456f6ae",
+      "differences": {
+        "sentiment": {
+          "human": 0,
+          "predicted": 0.014999999999999902
+        }
+      }
+    },
+    {
+      "review_id": "46842184-32f8-4088-ac15-2a700a7e94ed",
+      "differences": {
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.43000000000000005
+        }
+      }
+    },
+    {
+      "review_id": "657f1b77-0183-4b06-bf48-5e6d9ab08f9a",
+      "differences": {
+        "severity": {
+          "human": 1,
+          "predicted": 2
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.99
+        }
+      }
+    },
+    {
+      "review_id": "5de7f95b-ccad-41b2-9f63-a13f7c1d9f09",
+      "differences": {
+        "intent": {
+          "human": "complaint",
+          "predicted": "unclear"
+        },
+        "severity": {
+          "human": 1,
+          "predicted": 2
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.935
+        },
+        "needs_review": {
+          "human": false,
+          "predicted": true
+        }
+      }
+    },
+    {
+      "review_id": "de48c99b-46fe-4837-8634-e63dbc72a5ea",
+      "differences": {
+        "topic": {
+          "human": "other",
+          "predicted": "catalog"
+        },
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.9750000000000001
+        }
+      }
+    },
+    {
+      "review_id": "372d4e67-59cc-4c54-879f-3e8a202ee554",
+      "differences": {
+        "severity": {
+          "human": 1,
+          "predicted": 2
+        },
+        "sentiment": {
+          "human": 0,
+          "predicted": -0.5549999999999999
+        }
+      }
+    },
+    {
+      "review_id": "47f1406d-4918-4d60-9647-5ca8e610caca",
+      "differences": {
+        "severity": {
+          "human": 3,
+          "predicted": 4
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.95
+        }
+      }
+    },
+    {
+      "review_id": "36609c5c-fe48-4459-86b8-cc78fd3c77cd",
+      "differences": {
+        "intent": {
+          "human": "complaint",
+          "predicted": "unclear"
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.565
+        }
+      }
+    },
+    {
+      "review_id": "f4c8146a-d5c8-4168-b00e-21af666afc6a",
+      "differences": {
+        "intent": {
+          "human": "praise",
+          "predicted": "unclear"
+        },
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.7649999999999999
+        },
+        "needs_review": {
+          "human": false,
+          "predicted": true
+        }
+      }
+    },
+    {
+      "review_id": "3ddb3f4e-f7b9-430b-b335-eadc6d321f46",
+      "differences": {
+        "severity": {
+          "human": 2,
+          "predicted": 3
+        }
+      }
+    },
+    {
+      "review_id": "16d640e9-b281-4746-9562-c7dbcf7126b6",
+      "differences": {
+        "severity": {
+          "human": 2,
+          "predicted": 3
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.45999999999999996
+        }
+      }
+    },
+    {
+      "review_id": "8cc4fad4-26ec-47b7-96e8-49c7da714eca",
+      "differences": {
+        "severity": {
+          "human": 1,
+          "predicted": 2
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.945
+        },
+        "needs_review": {
+          "human": false,
+          "predicted": true
+        }
+      }
+    },
+    {
+      "review_id": "215463ae-95b7-4481-8747-1754b68f31fa",
+      "differences": {
+        "intent": {
+          "human": "request",
+          "predicted": "complaint"
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.985
+        }
+      }
+    },
+    {
+      "review_id": "46c0b49f-83a1-427e-8f0b-cef62e3c94b5",
+      "differences": {
+        "severity": {
+          "human": 5,
+          "predicted": 2
+        }
+      }
+    },
+    {
+      "review_id": "283b5843-a992-464f-b1dc-9dc7281ff390",
+      "differences": {
+        "sentiment": {
+          "human": 0,
+          "predicted": -0.135
+        }
+      }
+    },
+    {
+      "review_id": "1d15724a-98ff-400a-8083-0d9afc801098",
+      "differences": {
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.47
+        },
+        "needs_review": {
+          "human": false,
+          "predicted": true
+        }
+      }
+    },
+    {
+      "review_id": "89ea724c-358f-48ab-9516-cd130d21c471",
+      "differences": {
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.6950000000000001
+        }
+      }
+    },
+    {
+      "review_id": "2aa566c6-b98d-4513-b900-83702a8db8eb",
+      "differences": {
+        "topic": {
+          "human": "other",
+          "predicted": "usability"
+        },
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.655
+        }
+      }
+    },
+    {
+      "review_id": "8c0546b0-ce43-4a36-9d33-9f979e98d522",
+      "differences": {
+        "topic": {
+          "human": "usability",
+          "predicted": "catalog"
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.99
+        }
+      }
+    },
+    {
+      "review_id": "a972945c-6601-4108-882a-afe986866a7b",
+      "differences": {
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.9950000000000001
+        }
+      }
+    },
+    {
+      "review_id": "8fd3dd72-5535-40f6-8779-1bd60892131e",
+      "differences": {
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.47
+        },
+        "needs_review": {
+          "human": false,
+          "predicted": true
+        }
+      }
+    },
+    {
+      "review_id": "b58dd6f0-ad88-4319-b6db-58afb60c37c1",
+      "differences": {
+        "severity": {
+          "human": 2,
+          "predicted": 1
+        },
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.3400000000000001
+        },
+        "needs_review": {
+          "human": true,
+          "predicted": false
+        }
+      }
+    },
+    {
+      "review_id": "1a41c7e1-a655-4c63-b4db-c22bdff18003",
+      "differences": {
+        "severity": {
+          "human": 1,
+          "predicted": 2
+        }
+      }
+    },
+    {
+      "review_id": "dceb14e7-2df0-422f-bb2b-73d7c373159a",
+      "differences": {
+        "topic": {
+          "human": "usability",
+          "predicted": "playback"
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.995
+        }
+      }
+    },
+    {
+      "review_id": "5fba12ea-4980-4f25-a129-f830a3974fd2",
+      "differences": {
+        "topic": {
+          "human": "usability",
+          "predicted": "catalog"
+        },
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.99
+        }
+      }
+    },
+    {
+      "review_id": "ac4e860a-c042-49cc-90f3-189591c336ac",
+      "differences": {
+        "topic": {
+          "human": "usability",
+          "predicted": "downloads"
+        },
+        "severity": {
+          "human": 2,
+          "predicted": 4
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.69
+        }
+      }
+    },
+    {
+      "review_id": "d2f3874f-d15d-4a2f-bb97-4f1213defa46",
+      "differences": {
+        "severity": {
+          "human": 2,
+          "predicted": 3
+        },
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.995
+        }
+      }
+    },
+    {
+      "review_id": "99b93e31-9f15-4daa-88ac-349ab0419c48",
+      "differences": {
+        "sentiment": {
+          "human": -1,
+          "predicted": -0.935
+        }
+      }
+    },
+    {
+      "review_id": "ca63dfbe-7120-4e18-af6e-8ea786cd157d",
+      "differences": {
+        "sentiment": {
+          "human": 1,
+          "predicted": 0.98
+        }
+      }
+    }
+  ],
+  "notes": "Missing/quarantined/invalid predictions count as incorrect for agreement. MAE uses valid predictions only; inspect coverage alongside MAE. Sentiment tolerance is a declared project choice. Do not tune on these holdout labels."
+}

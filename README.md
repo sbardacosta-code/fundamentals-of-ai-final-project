@@ -54,18 +54,18 @@ Each step was approved separately by the student with its projected cost and har
 | Role prompts | Enrichment and verification rubric: [`review_pipeline/jev.py`](review_pipeline/jev.py) (`TOPICS`, `INTENTS`, `SEVERITIES`, `build_request`); grouping catalog and prompt: [`review_pipeline/grouping.py`](review_pipeline/grouping.py); memo prompt: [`review_pipeline/memo.py`](review_pipeline/memo.py) (`PROMPT`) with the Haiku request in [`review_pipeline/scale_memo.py`](review_pipeline/scale_memo.py) |
 | Architecture | [Architecture](#architecture-orchestration-not-a-swarm) above; orchestrator [`review_pipeline/scale.py`](review_pipeline/scale.py) |
 | Saved outputs | [`grading/`](grading) (contract export), [`cost/scale/`](cost/scale) (per-checkpoint records, calls, memos) |
-| Evaluation | [Verifier analysis](research/verification-analysis-100k.md), optimization quality gates in [`cost/README.md`](cost/README.md), synthetic robustness tests in [`tests/`](tests); human golden-label evaluation pending (see below) |
+| Evaluation | [Human golden-label evaluation](evaluation/README.md) (topic 84%, intent 86%, severity exact 68%, MAE 0.42), [verifier analysis](research/verification-analysis-100k.md), optimization quality gates in [`cost/README.md`](cost/README.md), synthetic robustness tests in [`tests/`](tests) |
 | Cost evidence and calculator | Pilot calculator [`cost/report.md`](cost/report.md) (`python3 -m review_pipeline.pilot_report cost`, offline), [measured scale runs](cost/scale/README.md), [100k sample plan](cost/scale_plan.json) |
-| Memo | [`grading/memo.json`](grading/memo.json) (validated, human review pending) |
+| Memo | [`grading/memo_reviewed.md`](grading/memo_reviewed.md) (human-reviewed and approved), original model output [`grading/memo.json`](grading/memo.json) |
 | Dashboard, backend, database | https://fundamentals-of-ai-spotify-insights.vercel.app, [`dashboard/`](dashboard) |
 | Interruption and resume | [`grading/checkpoint_before.json`](grading/checkpoint_before.json) (104 IDs) → [`grading/checkpoint_after.json`](grading/checkpoint_after.json) |
 | Checker self-check | [`cost/self-check-100k.json`](cost/self-check-100k.json) |
 
 ## Current status (2026-10-21)
 
-Done and measured: 100,000-review run, blind verification, grouping, ranking, Haiku memo, grading export with checker self-check, deployed dashboard with backend and database, 106 passing tests.
+Done and measured: 100,000-review run, blind verification, grouping, ranking, Haiku memo (human-reviewed), grading export with checker self-check, deployed dashboard with backend, database and animated walkthrough, evaluation against the student's 50 human golden labels, 106 passing tests.
 
-Pending: the student's 50 human golden labels and the evaluation against them; human review of the generated memo; the short screen recording of interruption and resume. Scope is the instructor's 100,000-review target, not the full 660,622-row corpus ([why](research/scope-and-grade-2026-10-21.md)).
+Pending: the short screen recording of interruption and resume (the written before/after checkpoint evidence is in `grading/`). Scope is the instructor's 100,000-review target, not the full 660,622-row corpus ([why](research/scope-and-grade-2026-10-21.md)).
 
 ## Reproduce the scaled run
 

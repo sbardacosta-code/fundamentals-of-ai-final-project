@@ -70,6 +70,9 @@ def main():
         r['verifier_agrees'] = bool(v) and all(v[k] == r[k] for k in ('topic', 'intent', 'severity'))
         examples.append(r)
     stats['examples'] = examples
+    evaluation = json.loads((ROOT / 'evaluation/golden_evaluation.json').read_text())
+    stats['golden'] = {k: evaluation[k] for k in ('golden_count', 'topic_accuracy', 'intent_accuracy', 'severity_exact_accuracy',
+                                                 'severity_mae', 'sentiment_mae', 'sentiment_within_tolerance_fraction')}
     db.executemany('INSERT INTO stats VALUES(?,?)', [(k, json.dumps(v)) for k, v in stats.items()])
     db.commit(); db.execute('VACUUM'); db.close()
     print(OUT, OUT.stat().st_size)

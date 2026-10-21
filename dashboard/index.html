@@ -80,6 +80,9 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}tr.issue{cursor:poi
 <h2>Scaling checkpoints (measured)</h2>
 <div class="scroll"><table id="cp"><thead><tr><th>Run</th><th class="n">Rows</th><th class="n">Workers</th><th class="n">Seconds</th><th class="n">Cache reuse</th><th class="n">Verifier agreement</th><th class="n">Jev cost</th><th class="n">Cap</th></tr></thead><tbody></tbody></table></div>
 
+<h2>Quality vs the student's 50 human labels</h2>
+<div class="grid" id="golden"></div>
+<p class="sub" style="margin-top:8px">Labels made by the student without seeing predictions and never used for tuning. Severity tends to be rated higher by the model than by the human; see evaluation/README.md in the repository.</p>
 <h2>Issue ranking</h2>
 <p class="sub">Completed complaints and cancellations only. Click an issue to see its highest-severity reviews.</p>
 <div class="scroll"><table id="issues"><thead><tr><th class="n">Rank</th><th>Issue</th><th class="n">Complaints</th><th class="n">Severity sum</th><th class="n">Mean severity</th></tr></thead><tbody></tbody></table></div>
@@ -147,6 +150,10 @@ async function play(ex){const my=++runId;wk();while(my===runId){for(let i=0;i<ex
     tr.onclick=()=>reviews(r.issue_id,tr);ib.append(tr)}
   const m=s.memo,mb=document.getElementById('memo');mb.append(el('p',m.recommendation));
   for(const [title,list] of [['Alternatives',m.alternatives],['Limitations',m.limitations]]){mb.append(el('b',title));const ul=el('ul');list.forEach(x=>ul.append(el('li',x)));mb.append(ul)}
+  const gd=s.golden,gg=document.getElementById('golden');
+  for(const [v,l] of [[(gd.topic_accuracy*100).toFixed(0)+'%','topic agreement'],[(gd.intent_accuracy*100).toFixed(0)+'%','intent agreement'],
+    [(gd.severity_exact_accuracy*100).toFixed(0)+'%','severity exact'],[gd.severity_mae.toFixed(2),'severity mean abs. error'],[gd.golden_count,'human-labeled reviews']]){
+    const c=el('div',undefined,'card kpi');c.append(el('div',v,'v'),el('div',l,'l'));gg.append(c)}
   bars('by-intent','By intent',s.by_intent);bars('by-topic','By topic',s.by_topic);
 })().catch(e=>{document.getElementById('scope').textContent='Could not load data: '+e.message});
 </script>
