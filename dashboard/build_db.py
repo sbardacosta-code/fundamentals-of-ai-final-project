@@ -56,6 +56,20 @@ def main():
                  pilot=dict(rows=100, cost_usd=0.010991572, workers=1),
                  models=dict(classifier='Jev jev-1.13.0 (TypeSafe)', memo='Claude Haiku 5.5 (claude-haiku-5-5)'),
                  scope='Deterministic 100,000-review sample of the 660,622-row corpus (instructor seed and ordering).')
+    # Real reviews used by the dashboard's animated walkthrough (fixed IDs, verified first example).
+    picks = [('23dba90f-17d7-4ee7-9b6f-1603a2f81335', True), ('10f09c93-34ef-4a3b-8ee2-97d7c00d44e0', False),
+             ('57c09fe7-3f31-42ab-8bc3-016229670470', False)]
+    verified = {json.loads(l)['review_id']: json.loads(l) for l in open(FINAL / 'verification.jsonl')}
+    examples = []
+    for rid, _ in picks:
+        r = dict(zip(('review_id', 'review_text', 'topic', 'intent', 'severity', 'sentiment', 'issue_id', 'cache_source_id'),
+                     db.execute('SELECT review_id, review_text, topic, intent, severity, sentiment, issue_id, cache_source_id '
+                                'FROM reviews WHERE review_id=?', (rid,)).fetchone()))
+        v = verified.get(rid)
+        r['verified'] = bool(v)
+        r['verifier_agrees'] = bool(v) and all(v[k] == r[k] for k in ('topic', 'intent', 'severity'))
+        examples.append(r)
+    stats['examples'] = examples
     db.executemany('INSERT INTO stats VALUES(?,?)', [(k, json.dumps(v)) for k, v in stats.items()])
     db.commit(); db.execute('VACUUM'); db.close()
     print(OUT, OUT.stat().st_size)

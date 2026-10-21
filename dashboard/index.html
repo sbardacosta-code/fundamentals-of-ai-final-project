@@ -24,6 +24,19 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}tr.issue{cursor:poi
 .review{border-top:1px solid var(--line);padding:10px 0}.review:first-child{border-top:0}.meta{color:var(--muted);font-size:12px}
 .memo li{margin:6px 0}.note{color:var(--warn);font-size:13px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:720px){.two{grid-template-columns:1fr}}
+
+.anim{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.anim svg{width:100%;height:auto;display:block}
+.anim .blk rect{fill:var(--bg);stroke:var(--line);stroke-width:1.5;transition:fill .3s,stroke .3s}
+.anim .blk.model rect{stroke:var(--accent)}
+.anim .blk.on rect{fill:var(--accent-soft);stroke:var(--accent);stroke-width:2.5}
+.anim text{fill:var(--text);font-size:13px;font-family:inherit}.anim text.s{fill:var(--muted);font-size:11px}
+.anim .wire{stroke:var(--line);stroke-width:2;fill:none}
+.anim .wk{fill:var(--bg);stroke:var(--accent);stroke-width:1.2;transition:fill .2s}.anim .wk.on{fill:var(--accent)}
+.anim #tok{transition:transform .9s ease-in-out}.anim #tok circle{fill:var(--warn)}
+.anim .cap{margin-top:10px;min-height:66px}.anim .cap b{display:block}.anim .quote{font-style:italic}
+.anim .tags span{display:inline-block;margin:4px 6px 0 0;padding:1px 8px;border-radius:12px;background:var(--accent-soft);font-size:12px}
+.anim .ctl{display:flex;gap:8px;align-items:center;margin-top:8px}.anim button{font:inherit;padding:4px 12px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--text);cursor:pointer}
 </style>
 </head>
 <body>
@@ -45,6 +58,25 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}tr.issue{cursor:poi
 </div>
 <p class="sub" style="margin-top:8px">A Python orchestrator controls the stages, spending caps and stop conditions (orchestration, not a swarm). Green stages call a model; the rest is deterministic code.</p>
 
+
+<h2>Watch a review go through the system</h2>
+<div class="anim">
+<svg viewBox="0 0 1000 250" role="img" aria-label="Animated pipeline">
+  <path class="wire" d="M95 125 H155 M265 125 H330 M470 125 H520 M520 125 V65 H560 M520 125 V185 H560 M690 65 H740 V125 M690 185 H740 V125 M740 125 H760 M850 125 H880"/>
+  <g class="blk" id="b-ingest"><rect x="10" y="95" width="85" height="60" rx="8"/><text x="52" y="122" text-anchor="middle">Ingest</text><text class="s" x="52" y="140" text-anchor="middle">CSV row</text></g>
+  <g class="blk" id="b-queue"><rect x="155" y="95" width="110" height="60" rx="8"/><text x="210" y="118" text-anchor="middle">Queue + cache</text><text class="s" x="210" y="136" text-anchor="middle">SQLite</text></g>
+  <g class="blk model" id="b-enrich"><rect x="330" y="80" width="140" height="90" rx="8"/><text x="400" y="100" text-anchor="middle">Enrich · Jev</text><text class="s" x="400" y="160" text-anchor="middle">8 parallel workers</text>
+    <g id="wks"></g></g>
+  <g class="blk model" id="b-verify"><rect x="560" y="35" width="130" height="60" rx="8"/><text x="625" y="60" text-anchor="middle">Verify · Jev</text><text class="s" x="625" y="78" text-anchor="middle">blind 10% sample</text></g>
+  <g class="blk model" id="b-group"><rect x="560" y="155" width="130" height="60" rx="8"/><text x="625" y="180" text-anchor="middle">Group · Jev</text><text class="s" x="625" y="198" text-anchor="middle">complaint → issue</text></g>
+  <g class="blk" id="b-rank"><rect x="760" y="95" width="90" height="60" rx="8"/><text x="805" y="120" text-anchor="middle">Rank</text><text class="s" x="805" y="138" text-anchor="middle">code</text></g>
+  <g class="blk model" id="b-memo"><rect x="880" y="95" width="110" height="60" rx="8"/><text x="935" y="120" text-anchor="middle">Memo</text><text class="s" x="935" y="138" text-anchor="middle">Haiku 5.5</text></g>
+  <g id="tok"><circle r="11" cx="0" cy="0"/><text x="0" y="4" text-anchor="middle" style="fill:#fff;font-size:11px;font-weight:700">R</text></g>
+</svg>
+<div class="cap" id="cap"></div>
+<div class="ctl"><button id="replay">Replay</button><span class="sub" id="which" style="margin:0"></span></div>
+</div>
+<p class="sub" style="margin-top:8px">Three real reviews from the run, replayed with their saved labels: a new complaint, a praise review, and an exact duplicate that reuses a cached result. Orange token = the review; green = a model call.</p>
 <h2>Scaling checkpoints (measured)</h2>
 <div class="scroll"><table id="cp"><thead><tr><th>Run</th><th class="n">Rows</th><th class="n">Workers</th><th class="n">Seconds</th><th class="n">Cache reuse</th><th class="n">Verifier agreement</th><th class="n">Jev cost</th><th class="n">Cap</th></tr></thead><tbody></tbody></table></div>
 
@@ -74,8 +106,31 @@ async function reviews(issue,tr){document.querySelectorAll('tr.issue').forEach(r
   const rows=await get({q:'reviews',issue,limit:10});box.textContent='';
   for(const r of rows){const d=el('div',undefined,'review');d.append(el('div',r.review_text));
     d.append(el('div',`severity ${r.severity} · ${r.intent} · ${r.topic} · sentiment ${r.sentiment.toFixed(2)} · ${r.rating}★ · ${r.review_timestamp}${r.cache_source_id?' · cached result':''}`,'meta'));box.append(d)}}
+
+const P={ingest:[52,125],queue:[210,125],enrich:[400,125],verify:[625,65],group:[625,185],rank:[805,125],memo:[935,125],out:[740,125]};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));let runId=0;
+function wk(){const g=document.getElementById('wks');if(g.childElementCount)return;for(let i=0;i<8;i++){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',353+i*13);c.setAttribute('cy',130);c.setAttribute('r',5);c.setAttribute('class','wk');c.id='wk'+i;g.append(c)}}
+function on(id){document.querySelectorAll('.anim .blk').forEach(b=>b.classList.remove('on'));if(id)document.getElementById('b-'+id).classList.add('on')}
+function move(p){document.getElementById('tok').style.transform=`translate(${p[0]}px,${p[1]}px)`}
+function cap(title,body,tags){const c=document.getElementById('cap');c.textContent='';c.append(el('b',title));if(body){const d=el('div',body);c.append(d)}
+  if(tags){const t=el('div',undefined,'tags');tags.forEach(x=>t.append(el('span',x)));c.append(t)}}
+async function walk(r,idx,my){const ok=()=>my===runId;document.getElementById('which').textContent=`Review ${idx+1} of 3`;
+  const labels=[`topic: ${r.topic}`,`intent: ${r.intent}`,`severity: ${r.severity}`,`sentiment: ${r.sentiment.toFixed(2)}`];
+  move(P.ingest);on('ingest');cap('1. A review arrives','“'+r.review_text+'”  — its original row is hashed and kept.');await sleep(2200);if(!ok())return;
+  move(P.queue);on('queue');
+  if(r.cache_source_id){cap('2. Exact-text cache hit','This exact text was already classified for another review, so its saved result is reused: no Jev call, no cost. This review still counts on its own.',labels);await sleep(3200);if(!ok())return}
+  else{cap('2. Queued as a new unique text','One task per unique text goes into the durable SQLite queue; a worker claims it in a batch of 5.');await sleep(2200);if(!ok())return;
+    move(P.enrich);on('enrich');const w=Math.floor(Math.random()*8);document.getElementById('wk'+w).classList.add('on');
+    cap(`3. Jev worker w${w} classifies the batch`,'The spending ledger reserves cost first; code validates every returned label.',labels);await sleep(3200);document.getElementById('wk'+w).classList.remove('on');if(!ok())return;
+    if(r.verified){move(P.verify);on('verify');cap('4. Picked for blind verification','Jev classifies it again from scratch without seeing the first answer; code compares both.',[r.verifier_agrees?'verifier agrees':'verifier disagrees']);await sleep(3000);if(!ok())return}}
+  if(r.issue_id){move(P.group);on('group');cap('5. Grouped into an issue','Complaints and cancellations are assigned to one issue from a fixed catalog.',[`issue: ${r.issue_id}`]);await sleep(2800);if(!ok())return;
+    move(P.rank);on('rank');cap('6. Ranked by code',`Its severity (${r.severity}) is added to the issue's priority score. No model involved.`);await sleep(2600);if(!ok())return;
+    move(P.memo);on('memo');cap('7. Memo (once per run)','Claude Haiku 5.5 reads only the aggregated issue numbers and short excerpts, then writes the recommendation; a validator rejects invented numbers or IDs.');await sleep(3200)}
+  else{move(P.out);on(null);cap('5. Not grouped',`Intent is ${r.intent}, so it is counted in the label totals but not in the complaint ranking.`,labels);await sleep(3000)}}
+async function play(ex){const my=++runId;wk();while(my===runId){for(let i=0;i<ex.length&&my===runId;i++)await walk(ex[i],i,my)}}
 (async()=>{
-  const s=await get({q:'summary'});const t=s.totals;const cp=s.checkpoints;const f=cp.sample_100000;
+  const s=await get({q:'summary'});
+  play(s.examples);document.getElementById('replay').onclick=()=>play(s.examples);const t=s.totals;const cp=s.checkpoints;const f=cp.sample_100000;
   document.getElementById('scope').textContent=s.scope+' Classifier: '+s.models.classifier+'. Memo: '+s.models.memo+'.';
   const jev=Object.values(cp).reduce((a,c)=>a+c.spent_usd,0);
   const k=[[fmt(t.rows),'reviews processed'],[fmt(t.completed),'classified'],[fmt(t.quarantined),'quarantined (visible)'],
