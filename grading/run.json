@@ -1,0 +1,27 @@
+{
+  "version": "a5-audit-v1",
+  "analysis_count": 100000,
+  "analysis_sha256": "cf2641e8f3075e392a4c693c7cd45484c68e907569c48718cf131f0e321d643c",
+  "classification_input_fields": [
+    "review_text"
+  ],
+  "allow_multi_issue": false,
+  "declared_scope": "Deterministic 100,000-review sample per instructor update of 2026-10-11; not the full 660,622-row corpus.",
+  "sample_method": "First 100,000 rows by SHA-256(berkeley-fall-2026-assignment-5-v1:review_id) over unique nonempty valid-rating rows (instructor seed and ordering).",
+  "enrichment_config": "a9929aa2409ac9970c4d5fb000aa7560eaa8ace0995c56d3a927adbb4781da12",
+  "checkpoint_ledgers": {
+    "checkpoint_500": "7e2253c6fc18446bac076f80d7b8d1bb",
+    "analysis_10000": "62eef1f314814fbca103b8e8c0bf4f54",
+    "sample_100000": "192f637e2d594b019816d4e8a624cd2c"
+  },
+  "memo_ledgers": [
+    "b2348de0a79f410f819baad496796aaa"
+  ],
+  "call_counts_by_role": {
+    "enrich": 15679,
+    "verify": 1694,
+    "group": 8018,
+    "memo": 1
+  },
+  "raw_full_call_logs": "cost/scale/<checkpoint>/calls.jsonl.gz"
+}

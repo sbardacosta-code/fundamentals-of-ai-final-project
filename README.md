@@ -1,5 +1,49 @@
 # Spotify reviews: Jev multi-agent pipeline
 
+Fundamentals of AI final project. A reproducible pipeline that turns 100,000 Spotify app reviews into a ranked list of product issues and a short recommendation memo, using **Jev** (TypeSafe) as the structured decision engine and **Claude Haiku 5.5** as a separate lightweight writer. Every number below links to saved evidence; nothing here requires an API key to inspect.
+
+## What the project does, in plain terms
+
+1. **Ingest.** Read the instructor's CSV (660,622 rows), hash every original row, and freeze a deterministic 100,000-review sample using the instructor's own seed and ordering (`python3 -m review_pipeline.scale_plan`).
+2. **Queue and cache.** Put one task per *unique exact text* into a durable SQLite queue. 100,000 rows contain 78,099 unique texts, so 21,900 rows reuse a saved result instead of a new paid call. Every original review still keeps its own output row and counts separately.
+3. **Enrich (agent 1, Jev).** Parallel workers claim batches of 5 reviews and ask Jev for topic, intent, severity, sentiment and ambiguity under the shared rubric. Code validates every returned ID and label before saving.
+4. **Verify (agent 2, Jev, blind).** A declared 10% random sample is classified again from scratch without seeing the first answers; code compares the two.
+5. **Group (agent 3, Jev).** Complaint and cancellation reviews are assigned to issues from a fixed catalog.
+6. **Rank (code, no model).** Priority = sum of severity per issue, exactly as the grading contract specifies.
+7. **Recommend (agent 4, Claude Haiku 5.5).** Haiku receives only the aggregated numbers and short cited excerpts, never the corpus. A validator rejects any invented number, claim ID, issue or review ID.
+
+## Architecture: orchestration, not a swarm
+
+A deterministic orchestrator written in Python (`review_pipeline/scale.py`) owns the control flow: stage order, spending caps, retries and stop conditions. No model decides what runs next. Inside each stage, N bounded workers (2, 4, then 8) pull batches from the same SQLite queue in parallel and share one spending ledger and one request-rate limiter. The "agents" are separate roles with their own instructions, inputs, outputs and saved evidence; they never call each other. A swarm was rejected because the work has fixed inputs, strict dependencies and a shared budget, so free-form agent coordination would add cost and unpredictability without benefit.
+
+```
+CSV ─► durable queue + exact-text cache (SQLite, spend ledger)
+          │
+          ├─► enrich: Jev × N workers (batch 5) ──► records
+          │        ├─► verify: Jev blind 10% sample ──► agreement report
+          │        └─► group: Jev on complaints ──► membership
+          │                         └─► rank (code) ──► ranking.csv, claims.csv
+          │                                      └─► memo: Claude Haiku 5.5 ──► memo.json
+          └─ checkpoints, interruption/resume, cost and call logs at every step
+```
+
+The four required techniques: **queues** (SQLite jobs with leases, idempotent commits and resumable state), **caching** (exact text + full model/prompt/schema configuration as the key), **batching** (5 reviews per Jev request, at most 50 allowed), **parallelization** (bounded workers under a shared rate limit and cap reservation before every dispatch).
+
+## How we scaled safely
+
+| Step | Rows | Workers | Measured Jev cost | Approved cap |
+| --- | ---: | ---: | ---: | ---: |
+| Pilot | 100 | 1 | $0.010992 incl. memo | $5 (pilot ledger) |
+| Checkpoint A | 500 | 2 | $0.029115 | $0.25 |
+| Checkpoint B | 10,000 | 4 | $0.481008 | $1.50 |
+| Final run | 100,000 | 8 | $4.230662 | $6.00 |
+
+Each step was approved separately by the student with its projected cost and hard cap. The full 100,000 sample cost **$4.74 in Jev usage plus $0.0042 in Haiku memos**, under the instructor's $10 target (rate-calculated from reported usage, not a provider invoice). Failed prompt-compression experiments are kept in the [experiment journal](cost/README.md).
+
+## Grading export and self-check
+
+`grading/` follows the contract (`python3 -m review_pipeline.grading_export`). The supplied zero-API checker, run with the 100,000 sample as `--analysis`, reports 100,000 of 100,000 IDs accounted for, 99,994 valid completed, 6 quarantined after two invalid Jev outputs, 21,900 valid cache reuses, and a working coverage candidate of 1.0; its only flag is `unfinished_classification: 6`. See [cost/self-check-100k.json](cost/self-check-100k.json). Against the full 660,622-row corpus the same evidence would cover only about 15% of rows; see [grading evaluation](research/scope-and-grade-2026-10-21.md).
+
 ## Scale checkpoints — October 20, 2026
 
 Measured, with explicit student approval for each checkpoint and cap (separate ledgers in `artifacts/scale/scale.sqlite`; the $5 pilot ledger is untouched):
