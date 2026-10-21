@@ -1,0 +1,65 @@
+{
+  "name": "sample_100000",
+  "run_id": "192f637e2d594b019816d4e8a624cd2c",
+  "input": "data/scale/sample_100000.csv",
+  "dataset_id": "cf2641e8f3075e392a4c693c7cd45484c68e907569c48718cf131f0e321d643c",
+  "enrichment_config": "a9929aa2409ac9970c4d5fb000aa7560eaa8ace0995c56d3a927adbb4781da12",
+  "budget_usd": 6.0,
+  "ledger": {
+    "id": "192f637e2d594b019816d4e8a624cd2c",
+    "budget": 6.0,
+    "spent": 4.230661848000018,
+    "reserved": -3.469446951953614e-18
+  },
+  "remaining_budget_usd": 1.7693381519999818,
+  "status_counts": {
+    "completed": 99994,
+    "quarantined": 6
+  },
+  "calls_by_role_outcome": {
+    "enrich:failed": 51,
+    "enrich:succeeded": 13930,
+    "group:failed": 8,
+    "group:succeeded": 7167,
+    "verify:failed": 4,
+    "verify:succeeded": 1508
+  },
+  "cost_by_role_usd": {
+    "enrich": "3.338456226",
+    "group": "0.520644516",
+    "verify": "0.371561106"
+  },
+  "cache_reused_rows": 21900,
+  "stages_complete": true,
+  "attempts": [
+    {
+      "started_at": "2026-10-21T05:10:34.702178+00:00",
+      "elapsed_seconds": 1591.324730875,
+      "workers": 8,
+      "batch_size": 5,
+      "requests_per_second": 16.0,
+      "stages_completed": [
+        "prepare",
+        "enrich",
+        "verify",
+        "group",
+        "rank"
+      ],
+      "stage_seconds": {
+        "prepare": 3.785160709,
+        "enrich": 958.309439,
+        "verify": 102.221125917,
+        "group": 504.759942875,
+        "rank": 3.863446124999882
+      },
+      "counters": {
+        "batches": 22605,
+        "requests": 22605,
+        "invalid": 63,
+        "rate_limited": 0
+      },
+      "error": null
+    }
+  ],
+  "error": null
+}

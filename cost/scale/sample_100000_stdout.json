@@ -1,0 +1,20 @@
+{
+  "name": "sample_100000",
+  "status_counts": {
+    "completed": 99994,
+    "quarantined": 6
+  },
+  "ledger": {
+    "id": "192f637e2d594b019816d4e8a624cd2c",
+    "budget": 6.0,
+    "spent": 4.230661848000018,
+    "reserved": -3.469446951953614e-18
+  },
+  "cost_by_role_usd": {
+    "enrich": "3.338456226",
+    "group": "0.520644516",
+    "verify": "0.371561106"
+  },
+  "stages_complete": true,
+  "error": null
+}
